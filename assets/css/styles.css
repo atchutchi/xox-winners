@@ -91,11 +91,11 @@ input[type="text"] {
     Link: https://codingartistweb.com/2022/01/tic-tac-toe-game-html-css-and-javascript/
 */
 
-/* Estilo do Tabuleiro */
+/* Style Board*/
 .game-board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 10px;
     width: 350px;
     margin: 0 auto;
     padding: 20px;
