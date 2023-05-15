@@ -8,14 +8,14 @@
 }
 
 body {
-    background-color: #292727;
+    background-color: white;
     font-family: 'Montserrat', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6{
     font-family: 'Lilita One', cursive;
     font-weight: bold;
-    color: #fff;
+    color: black;
 }
 
 /* Header and navigation bar*/
