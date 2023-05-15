@@ -38,3 +38,17 @@ nav a {
     text-decoration: none;
     color: white;
 }
+
+/* Main content */
+main {
+    padding: 1rem;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
