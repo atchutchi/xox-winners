@@ -69,98 +69,117 @@ function handleCellClick(event) {
     } else {
       startNextRound();
     }
+  } else if (checkTie()) {
+    alert("It's a tie!");
+    startNextRound();
   } else {
     // If no one won as of yet, the current player is changed.
     currentPlayer = currentPlayer === "X" ? "O" : "X";
-    if (gameMode === "playerVsMachine" && currentPlayer === "O" && !board[parseInt(event.target.id.slice(4)) - 1]) {
+    if (gameMode === "playerVsMachine" && currentPlayer === "O") {
         computerMove();
     }
   }
 }
 
-// Adapted from code by lando464 on CodePen: https://codepen.io/lando464/pen/BPGEKO
 function computerMove() {
-
-    var emptyCells = [];
-    var random;
+  let emptyCells = [];
   
-    for (var i = 0; i < board.length; i++) {
-      if (board[i] == '') {
-        emptyCells.push(i);
-      }
+  for (var i = 0; i < board.length; i++) {
+    if (board[i] == '') {
+      emptyCells.push(i);
     }
-  
-    // Check for winning moves
-    for (var i = 0; i < winningCombinations.length; i++) {
-      var combination = winningCombinations[i];
-      var foundWinner = true;
-      for (var j = 0; j < combination.length; j++) {
-        if (board[combination[j]] != currentPlayer) {
-          foundWinner = false;
-          break;
-        }
-      }
-      if (foundWinner) {
-        // The computer has a winning move
-        board[combination[0]] = currentPlayer;
-        document.getElementById(`cell${combination[0] + 1}`).textContent = currentPlayer;
-        return;
-      }
-    }
-  
-    // No winning moves found, so select a random empty cell
-    random = Math.floor(Math.random() * emptyCells.length);
-    board[emptyCells[random]] = currentPlayer;
-    document.getElementById(`cell${emptyCells[random] + 1}`).textContent = currentPlayer;
   }
+  
+  let move = -1;
+  for(let i = 0; i < winningCombinations.length; i++) {
+    let combination = winningCombinations[i];
+    if (board[combination[0]] === board[combination[1]] && board[combination[0]] !== "" && board[combination[2]] === "") {
+      move = combination[2];
+    } else if (board[combination[1]] === board[combination[2]] && board[combination[1]] !== "" && board[combination[0]] === "") {
+      move = combination[0];
+    } else if (board[combination[0]] === board[combination[2]] && board[combination[0]] !== "" && board[combination[1]] === "") {
+      move = combination[1];
+    }
+  }
+
+  if (move === -1) {
+    move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+  }
+  
+  board[move] = currentPlayer;
+  document.getElementById(`cell${move + 1}`).textContent = currentPlayer;
+  
+  // Check to see if the computer won.
+  if (checkWin(currentPlayer)) {
+    // Increases the winner's point total
+    currentPlayer === "X" ? playerXScore++ : playerOScore++;
+
+    // Updates the page's punctuation
+    updateScores();
+
+    // If this was the fifth round, the game concludes, so the next round is started.
+    if (currentRound === 5) {
+      endGame();
+    } else {
+      startNextRound();
+    }
+  } else if (checkTie()) {
+    alert("It's a tie!");
+    startNextRound();
+  } else {
+    // If no one won as of yet, the current player is changed.
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+  }
+}
 
 // Function to determine whether a player won
 function checkWin(player) {
     return winningCombinations.some(combination =>
     combination.every(index => board[index] === player)
     );
-    }
-    
-    // function to prepare the game for the upcoming round
-    function startNextRound() {
-    // Clear the board
-    board = ["", "", "", "", "", "", "", "", ""];
-    for (let i = 1; i <= 9; i++) {
-        document.getElementById(`cell${i}`).textContent = "";
+}
 
-    }
-    
-// Change the player
-currentPlayer = currentPlayer === "X" ? "O" : "X";
-    
-// Increment current round
-currentRound++;
-    
-// If machine should start the round
-if (gameMode === "playerVsMachine" && currentPlayer === "O") {
+// Function to check for a tie
+function checkTie() {
+  return board.every(cell => cell !== "");
+}
+
+// Function to prepare the game for the upcoming round
+function startNextRound() {
+  // Clear the board
+  board = ["", "", "", "", "", "", "", "", ""];
+  for (let i = 1; i <= 9; i++) {
+    document.getElementById(`cell${i}`).textContent = "";
+  }
+
+  // Player X always starts
+  currentPlayer = "X";
+  
+  // Increment current round
+  currentRound++;
+
+  // If machine should start the round
+  if (gameMode === "playerVsMachine" && currentPlayer === "O") {
     computerMove();
-    }
+  }
 }
     
-// function to stop the game after 5 rounds
+// Function to stop the game after 5 rounds
 function endGame() {
-gameInProgress = false;
+  gameInProgress = false;
     
-if (playerXScore > playerOScore) {
-
+  if (playerXScore > playerOScore) {
     alert("Player X wins the game!");
-    } else if (playerOScore > playerXScore) {
-
-        alert("Player O wins the game!");
-
-        } else {
-
-            alert("The game is a draw!");
-    }
+  } else if (playerOScore > playerXScore) {
+    alert("Player O wins the game!");
+  } else {
+    alert("The game is a draw!");
+  }
 }
     
 // Function to update the scores
 function updateScores() {
-    document.getElementById("playerXScore").textContent = playerXScore;
-    document.getElementById("playerOScore").textContent = playerOScore;
+  document.getElementById("playerXScore").textContent = playerXScore;
+  document.getElementById("playerOScore").textContent = playerOScore;
 }
+
