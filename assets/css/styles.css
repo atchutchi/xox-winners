@@ -59,11 +59,6 @@ h2 {
     text-align: center;
 }
 
-#playerInput {
-    display: none;
-    margin-top: 1rem;
-}
-
 .game-container {
     display: none;
     flex-wrap: wrap;
@@ -76,17 +71,10 @@ h2 {
     display: flex;
 }
 
-.col1,
+
 .col2 {
     flex: 1;
     padding: 1rem;
-}
-
-input[type="text"] {
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
 }
 
 .button {
