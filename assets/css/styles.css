@@ -8,14 +8,16 @@
 }
 
 body {
-    background-color: white;
+    background-color: #222;
     font-family: 'Montserrat', sans-serif;
+    color: aquamarine;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lilita One', cursive;
     font-weight: bold;
-    color: black;
+    color: aquamarine;
+    text-align: center;
 }
 
 /* Header and navigation bar */
@@ -36,7 +38,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: aquamarine;
 }
 
 /* Main content */
@@ -63,7 +65,7 @@ h2 {
     display: none;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: lightgrey;
+    background-color: #333;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
@@ -81,7 +83,7 @@ h2 {
     display: inline-block;
     padding: 0.5rem 1rem;
     background-color: #333;
-    color: white;
+    color: aquamarine;
     text-decoration: none;
     text-align: center;
     margin-bottom: 1rem;
@@ -112,15 +114,11 @@ h2 {
     font-size: 3em;
     margin-bottom: 5px;
     text-align: center;
-    background-color: #fff;
+    background-color: lightgrey;
     border-radius: 10px;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
-/* Winner */
-.winner {
-    background-color: #9AE1E5;
-}
 
 /* scores*/
 .scores {
@@ -155,7 +153,7 @@ h2 {
     padding: 1rem;
     border: 1px solid #333;
     border-radius: 10px;
-    background-color: #f5f5f5;
+    background-color: #333;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
@@ -171,7 +169,7 @@ h2 {
 /* Footer */
 footer {
     background-color: #333;
-    color: white;
+    color: aquamarine;
     padding: 1rem;
     text-align: center;
 }
