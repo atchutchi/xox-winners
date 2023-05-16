@@ -18,47 +18,61 @@
       </header>
       <main>
         <section>
-          <h1>XOX Winners</h1>
-          <div class="game-setup">
-            <h2>Choose your game mode:</h2>
-            <select id="gameMode">
-                <option value="pvm">Player vs Machine</option>
-                <option value="pvp">Player vs Player</option>
-            </select>
-            <div id="playerInput">
-                <input type="text" id="player1" placeholder="Player 1 name">
-                <input type="text" id="player2" placeholder="Player 2 name" disabled>
-                <button id="startBtn" class="button">Start</button>
+            <h1>XOX Winners</h1>
+            <div class="game-setup">
+              <h2>Choose your game mode:</h2>
+              <button id="startBtn" class="button">Player vs Player</button>
+              <button id="startMachineBtn" class="button">Player vs Machine</button>
             </div>
-          </div>
-          <div class="game-container">
-            <div class="col2">
-                <div class="game-board">
-                    <div class="game-row">
-                        <div class="game-cell" id="cell1"></div>
-                        <div class="game-cell" id="cell2"></div>
-                        <div class="game-cell" id="cell3"></div>
-                    </div>
-                    <div class="game-row">
-                        <div class="game-cell" id="cell4"></div>
-                        <div class="game-cell" id="cell5"></div>
-                        <div class="game-cell" id="cell6"></div>
-                    </div>
-                    <div class="game-row">
-                        <div class="game-cell" id="cell7"></div>
-                        <div class="game-cell" id="cell8"></div>
-                        <div class="game-cell" id="cell9"></div>
-                    </div>
-                </div>                               
-              <div class="scores">
-                <h2>Scores</h2>
-                <p>Player 1: 0</p>
-                <p>Player 2 / Machine: 0</p>
+            <div class="game-container">
+              <div class="col2">
+                  <div class="game-board">
+                      <div class="game-row">
+                          <div class="game-cell" id="cell1"></div>
+                          <div class="game-cell" id="cell2"></div>
+                          <div class="game-cell" id="cell3"></div>
+                      </div>
+                      <div class="game-row">
+                          <div class="game-cell" id="cell4"></div>
+                          <div class="game-cell" id="cell5"></div>
+                          <div class="game-cell" id="cell6"></div>
+                      </div>
+                      <div class="game-row">
+                          <div class="game-cell" id="cell7"></div>
+                          <div class="game-cell" id="cell8"></div>
+                          <div class="game-cell" id="cell9"></div>
+                      </div>
+                  </div>                               
+                <div class="scores">
+                  <h2>Scores</h2>
+                  <p>Player X: <span id="playerXScore">0</span></p>
+                  <p>Player O: <span id="playerOScore">0</span></p>
+                </div>
+                <button class="button">Restart</button>
               </div>
-              <button class="button">Restart</button>
             </div>
-          </div>
-        </section>
+          </section>
+          <section>
+              <h2>Rules</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec nisl vitae est aliquet vulputate. Pellentesque vitae arcu lorem. Nulla facilisi.</p>
+          </section>
+          </main>
+          <script src="assets/js/scripts.js"></script>
+          <footer>
+            <p>Copyright &copy; Atchutchi Ferreira</p>
+          </footer>     
+  </body>
+  </html>
+  Alterações feitas:
+  
+  Removi o elemento <select> e os campos de entrada do jogador. Em vez disso, adicionei dois botões: "Player vs Player" e "Player vs Machine".
+  Nos parágrafos de pontuação, adicionei elementos <span> com os IDs playerXScore e playerOScore para que possamos atualizar os pontos mais facilmente.
+  
+  
+  
+  
+  
+  
         <section>
             <h2>Rules</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec nisl vitae est aliquet vulputate. Pellentesque vitae arcu lorem. Nulla facilisi.</p>
