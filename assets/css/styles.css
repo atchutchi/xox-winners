@@ -119,9 +119,8 @@ h2 {
 
 /* Winner */
 .winner {
-    background-color: green;
-    color: white;
-  }
+    background-color: #9AE1E5;
+}
 
 .scores p {
     margin-bottom: 1rem;
