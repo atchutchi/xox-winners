@@ -45,3 +45,32 @@ function handleGameModeSelection(mode) {
   document.querySelector(".game-container").classList.add("active");
   document.getElementById("restartBtn").classList.add("active");
 }
+
+// Function to deal with a cell's click
+function handleCellClick(event) {
+    // If the game is not in progress or the cell has already been preenchimed, return.
+    if (!gameInProgress || event.target.textContent !== "") return;
+    
+    // Add the current player's icon to the cymbidium and the table's array
+    event.target.textContent = currentPlayer;
+    board[parseInt(event.target.id.slice(4)) - 1] = currentPlayer;
+    
+    // Check to see if the current player won.
+    if (checkWin(currentPlayer)) {
+      // Increases the winner's point total
+      currentPlayer === "X" ? playerXScore++ : playerOScore++;
+      
+      // Updates the page's punctuation
+      updateScores();
+  
+      // If this was the fifth round, the game concludes, so the next round is started.
+      if (currentRound === 5) {
+        endGame();
+      } else {
+        startNextRound();
+      }
+    } else {
+      // If no one won as of yet, the current player is changed.
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
+    }
+  }
