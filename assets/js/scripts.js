@@ -30,32 +30,41 @@ function checkWin() {
 }
 
 function updateScores() {
-    document.getElementById("playerXScore").textContent = playerXScore;
-    document.getElementById("playerOScore").textContent = playerOScore;
+    document.querySelector(".scores p:nth-child(2)").textContent = `Player X: ${playerXScore}`;
+    document.querySelector(".scores p:nth-child(3)").textContent = `Player O / Machine: ${playerOScore}`;
 }
 
 function computerMove() {
     if(isComputerPlayer) {
         let emptyCells = board.reduce((acc, cell, index) => cell === '' ? [...acc, index] : acc, []);
-        let randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-        board[randomCell] = 'O';
-        document.getElementById(`cell${randomCell + 1}`).textContent = 'O';
+        if(emptyCells.length > 0) {
+            let randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+            board[randomCell] = 'O';
+            document.getElementById(`cell${randomCell + 1}`).textContent = 'O';
+            currentPlayer = 'X';
+        }
     }
 }
 
 function startGame() {
-    document.getElementById('playerInput').style.display = 'none';
-    document.querySelector('.game-container').classList.add('active');
+    document.querySelector('.game-setup').style.display = 'none';
+    document.querySelector('.game-container').style.display = 'flex';
+    isComputerPlayer = document.querySelector('#gameMode').value === 'pvm';
+    if(isComputerPlayer) {
+        alert("Start the game Player vs Machine");
+    } else {
+        alert("Start the game Player vs Player");
+    }
 }
 
-function addPlayer() {
-    let playerName = document.querySelector('#playerName').value;
-    if (playerName === '') {
-        alert('Please enter a name');
-    } else {
-        alert(`Player ${playerName} added`);
-        document.querySelector('#playerName').value = '';
-    }
+function restartGame() {
+    board = ['', '', '', '', '', '', '', '', ''];
+    currentPlayer = 'X';
+    gameOver = false;
+    document.querySelectorAll('.game-cell').forEach(cell => cell.textContent = '');
+    document.querySelector('.game-setup').style.display = 'flex';
+    document.querySelector('.game-container').style.display = 'none';
+    alert("Restart the game");
 }
 
 document.querySelectorAll('.game-cell').forEach((cell, index) => {
@@ -68,16 +77,16 @@ document.querySelectorAll('.game-cell').forEach((cell, index) => {
         if(checkWin()) {
             gameOver = true;
             if(currentPlayer === 'X') {
-                player1Score++;
+                playerXScore++;
             } else {
-                player2Score++;
+                playerOScore++;
             }
             alert(`We have a winner: Player ${currentPlayer}!`);
             updateScores();
-            if(player1Score === 5 || player2Score === 5) {
+            if(playerXScore === 5 || playerOScore === 5) {
                 alert(`Player ${currentPlayer} is the overall winner!`);
-                player1Score = 0;
-                player2Score = 0;
+                playerXScore = 0;
+                playerOScore = 0;
                 updateScores();
             }
         } else if(!board.includes('')) {
@@ -89,19 +98,6 @@ document.querySelectorAll('.game-cell').forEach((cell, index) => {
         if(!gameOver) computerMove();
     });
 });
-
-document.querySelector('#startGame').addEventListener('click', startGame);
-
-document.querySelector('#addPlayer').addEventListener('click', addPlayer);
-
-document.querySelector('.button').addEventListener('click', () => {
-board.fill('');
-currentPlayer = 'X';
-gameOver = false;
-document.querySelectorAll('.game-cell').forEach(cell => cell.textContent = '');
-});
-
-document.querySelector('.col1 button').addEventListener('click', () => {
-isComputerPlayer = !isComputerPlayer;
-document.querySelector('.col1 button').textContent = isComputerPlayer ? "Stop" : "Start";
-});
+        
+        document.querySelector('#startBtn').addEventListener('click', startGame);
+        document.querySelector('#restartBtn').addEventListener('click', restartGame);
