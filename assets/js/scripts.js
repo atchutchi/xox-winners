@@ -43,6 +43,21 @@ function computerMove() {
     }
 }
 
+function startGame() {
+    document.getElementById('playerInput').style.display = 'none';
+    document.querySelector('.game-container').classList.add('active');
+}
+
+function addPlayer() {
+    let playerName = document.querySelector('#playerName').value;
+    if (playerName === '') {
+        alert('Please enter a name');
+    } else {
+        alert(`Player ${playerName} added`);
+        document.querySelector('#playerName').value = '';
+    }
+}
+
 document.querySelectorAll('.game-cell').forEach((cell, index) => {
     cell.addEventListener('click', (e) => {
         if(gameOver || board[index] !== '') return;
@@ -75,14 +90,18 @@ document.querySelectorAll('.game-cell').forEach((cell, index) => {
     });
 });
 
+document.querySelector('#startGame').addEventListener('click', startGame);
+
+document.querySelector('#addPlayer').addEventListener('click', addPlayer);
+
 document.querySelector('.button').addEventListener('click', () => {
-    board.fill('');
-    currentPlayer = 'X';
-    gameOver = false;
-    document.querySelectorAll('.game-cell').forEach(cell => cell.textContent = '');
+board.fill('');
+currentPlayer = 'X';
+gameOver = false;
+document.querySelectorAll('.game-cell').forEach(cell => cell.textContent = '');
 });
 
 document.querySelector('.col1 button').addEventListener('click', () => {
-    isComputerPlayer = !isComputerPlayer;
-    document.querySelector('.col1 button').textContent = isComputerPlayer ? "Stop" : "Start";
+isComputerPlayer = !isComputerPlayer;
+document.querySelector('.col1 button').textContent = isComputerPlayer ? "Stop" : "Start";
 });
