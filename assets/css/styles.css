@@ -122,6 +122,15 @@ h2 {
     background-color: #9AE1E5;
 }
 
+/* scores*/
+.scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
 .scores p {
     margin-bottom: 1rem;
 }
