@@ -30,8 +30,8 @@ function checkWin() {
 }
 
 function updateScores() {
-    document.querySelector(".scores p:nth-child(2)").textContent = `Player 1: ${player1Score}`;
-    document.querySelector(".scores p:nth-child(3)").textContent = `Player 2 / Machine: ${player2Score}`;
+    document.getElementById("playerXScore").textContent = playerXScore;
+    document.getElementById("playerOScore").textContent = playerOScore;
 }
 
 function computerMove() {
