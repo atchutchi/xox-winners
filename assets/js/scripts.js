@@ -21,3 +21,12 @@ const winningCombinations = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+// Identify who the current player is.
+let currentPlayer = "X";
+
+// Adds an event listener to each cell.
+for (let i = 1; i <= 9; i++) {
+    const cell = document.getElementById(`cell${i}`);
+    cell.addEventListener("click", handleCellClick);
+  }
