@@ -29,7 +29,7 @@ let currentPlayer = "X";
 for (let i = 1; i <= 9; i++) {
     const cell = document.getElementById(`cell${i}`);
     cell.addEventListener("click", handleCellClick);
-  }
+}
 
 // Add event listeners to the game mode selection buttons.
 document.getElementById("playerVsPlayer").addEventListener("click", () => handleGameModeSelection("playerVsPlayer"));
@@ -73,21 +73,21 @@ function handleCellClick(event) {
       // If no one won as of yet, the current player is changed.
       currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
-  }
+}
 
 // Function to determine whether a player won
 function checkWin(player) {
     return winningCombinations.some(combination =>
       combination.every(index => board[index] === player)
     );
-  }
+}
   
 // function to prepare the game for the upcoming round
 function startNextRound() {
 // Clean all
 board = ["", "", "", "", "", "", "", "", ""];
 for (let i = 1; i <= 9; i++) {
-document.getElementById(cell${i}).textContent = "";
+    document.getElementById(`cell${i}`).textContent = "";
 }
 
 // Change the player
