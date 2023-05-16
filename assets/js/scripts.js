@@ -48,12 +48,12 @@ function handleGameModeSelection(mode) {
 
 // Function to deal with a cell's click
 function handleCellClick(event) {
-  // If the game is not in progress or the cell has already been filled, return.
-  if (!gameInProgress || event.target.textContent !== "") return;
+    // If the game is not in progress or the cell has already been filled, return.
+    if (!gameInProgress || event.target.textContent !== "") return;
 
-  // Add the current player's icon to the board array
-  event.target.textContent = currentPlayer;
-  board[parseInt(event.target.id.slice(4)) - 1] = currentPlayer;
+    // Add the current player's icon to the board array
+    event.target.textContent = currentPlayer;
+    board[parseInt(event.target.id.slice(4)) - 1] = currentPlayer;
 
   // Check to see if the current player won.
   if (checkWin(currentPlayer)) {
@@ -72,14 +72,15 @@ function handleCellClick(event) {
   } else {
     // If no one won as of yet, the current player is changed.
     currentPlayer = currentPlayer === "X" ? "O" : "X";
-    if (gameMode === "playerVsMachine" && currentPlayer === "O") {
-      computerMove();
+    if (gameMode === "playerVsMachine" && currentPlayer === "O" && !board[parseInt(event.target.id.slice(4)) - 1]) {
+        computerMove();
     }
   }
 }
 
 // Adapted from code by lando464 on CodePen: https://codepen.io/lando464/pen/BPGEKO
 function computerMove() {
+
     var emptyCells = [];
     var random;
   
@@ -89,30 +90,29 @@ function computerMove() {
       }
     }
   
-// Check for winning moves
-for (var i = 0; i < winningCombinations.length; i++) {
-    var combination = winningCombinations[i];
-    var foundWinner = true;
-    for (var j = 0; j < combination.length; j++) {
+    // Check for winning moves
+    for (var i = 0; i < winningCombinations.length; i++) {
+      var combination = winningCombinations[i];
+      var foundWinner = true;
+      for (var j = 0; j < combination.length; j++) {
         if (board[combination[j]] != currentPlayer) {
           foundWinner = false;
           break;
         }
-    }
-    if (foundWinner) {
-    // The computer has a winning move
+      }
+      if (foundWinner) {
+        // The computer has a winning move
         board[combination[0]] = currentPlayer;
         document.getElementById(`cell${combination[0] + 1}`).textContent = currentPlayer;
         return;
-    }
+      }
     }
   
-// No winning moves found, so select a random empty cell
-random = Math.floor(Math.random() * emptyCells.length);
-board[emptyCells[random]] = currentPlayer;
-document.getElementById(`cell${emptyCells[random] + 1}`).textContent = currentPlayer;
-}
-  
+    // No winning moves found, so select a random empty cell
+    random = Math.floor(Math.random() * emptyCells.length);
+    board[emptyCells[random]] = currentPlayer;
+    document.getElementById(`cell${emptyCells[random] + 1}`).textContent = currentPlayer;
+  }
 
 // Function to determine whether a player won
 function checkWin(player) {
