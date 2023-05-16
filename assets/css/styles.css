@@ -126,6 +126,14 @@ h2 {
     margin-bottom: 1rem;
 }
 
+#restartBtn {
+    display: none;
+}
+
+#restartBtn.active {
+    display: inline-block;
+}
+
 /* Footer */
 footer {
     background-color: #333;
