@@ -74,3 +74,12 @@ function handleCellClick(event) {
       currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
   }
+
+// Function to determine whether a player won
+function checkWin(player) {
+    return winningCombinations.some(combination =>
+      combination.every(index => board[index] === player)
+    );
+  }
+  
+  
