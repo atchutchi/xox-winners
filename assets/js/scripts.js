@@ -2,8 +2,8 @@
 let board = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let gameOver = false;
-let player1Score = 0;
-let player2Score = 0;
+let playerXScore = 0;
+let playerOScore = 0;
 let isComputerPlayer = false;
 
 // Winning combinations
