@@ -82,4 +82,36 @@ function checkWin(player) {
     );
   }
   
-  
+// function to prepare the game for the upcoming round
+function startNextRound() {
+// Clean all
+board = ["", "", "", "", "", "", "", "", ""];
+for (let i = 1; i <= 9; i++) {
+document.getElementById(cell${i}).textContent = "";
+}
+
+// Change the player
+currentPlayer = currentPlayer === "X" ? "O" : "X";
+
+// Increment current round
+currentRound++;
+}
+
+// function to stop the game after 5 round
+function endGame() {
+gameInProgress = false;
+
+if (playerXScore > playerOScore) {
+alert("Player X wins the game!");
+} else if (playerOScore > playerXScore) {
+alert("Player O wins the game!");
+} else {
+alert("The game is a draw!");
+}
+}
+
+// Function to update the scores
+function updateScores() {
+document.getElementById("playerXScore").textContent = playerXScore;
+document.getElementById("playerOScore").textContent = playerOScore;
+}
