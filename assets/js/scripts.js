@@ -80,32 +80,39 @@ function handleCellClick(event) {
 
 // Adapted from code by lando464 on CodePen: https://codepen.io/lando464/pen/BPGEKO
 function computerMove() {
-  var emptyCells = [];
-  var random;
+    var emptyCells = [];
+    var random;
   
-  for (var i = 0; i < board.length; i++) {
-    if (board[i] == '') {
-      emptyCells.push(i);
+    for (var i = 0; i < board.length; i++) {
+      if (board[i] == '') {
+        emptyCells.push(i);
+      }
+    }
+  
+// Check for winning moves
+for (var i = 0; i < winningCombinations.length; i++) {
+    var combination = winningCombinations[i];
+    var foundWinner = true;
+    for (var j = 0; j < combination.length; j++) {
+        if (board[combination[j]] != currentPlayer) {
+          foundWinner = false;
+          break;
+        }
+    }
+    if (foundWinner) {
+    // The computer has a winning move
+        board[combination[0]] = currentPlayer;
+        document.getElementById(`cell${combination[0] + 1}`).textContent = currentPlayer;
+        return;
     }
     }
-    
-    random = Math.floor(Math.random() * emptyCells.length);
-    board[emptyCells[random]] = currentPlayer;
-    document.getElementById(`cell${emptyCells[random] + 1}`).textContent = currentPlayer;
-    
-    // Check if computer won
-    if (checkWin(currentPlayer)) {
-    playerOScore++;
-    updateScores();
-    if (currentRound === 5) {
-        endGame();
-    } else {
-        startNextRound();
-    }
-    } else {
-    currentPlayer = "X";
-    }
+  
+// No winning moves found, so select a random empty cell
+random = Math.floor(Math.random() * emptyCells.length);
+board[emptyCells[random]] = currentPlayer;
+document.getElementById(`cell${emptyCells[random] + 1}`).textContent = currentPlayer;
 }
+  
 
 // Function to determine whether a player won
 function checkWin(player) {
