@@ -69,7 +69,10 @@ h2 {
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
     border-width: 4px;
     border-style: solid;
+    /* border gradient copy from @thewebforce found on tik tok*/
     border-image: linear-gradient(45deg,cyan,#00ff95)1;
+    width: min(100% - 30px, 840px);
+    margin-inline: auto;
 }
 
 .game-container.active {
@@ -159,6 +162,8 @@ h2 {
     border-image: linear-gradient(45deg,cyan,#00ff95)1;
     background-color: #333;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    width: min(100% - 30px, 840px);
+    margin-inline: auto;
 }
 
 .rules ul {
