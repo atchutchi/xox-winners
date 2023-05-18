@@ -18,6 +18,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: #00ffff;
     text-align: center;
+    letter-spacing: 1px;
 }
 
 /* Header and navigation bar */
@@ -49,11 +50,13 @@ main {
 h1 {
     margin-bottom: 1.5rem;
     text-align: center;
+    letter-spacing: 1px;
 }
 
 h2 {
     margin-bottom: 1rem;
     margin-top: 1rem;
+    letter-spacing: 1px;
 }
 
 .game-setup {
