@@ -55,98 +55,82 @@ function handleCellClick(event) {
     event.target.textContent = currentPlayer;
     board[parseInt(event.target.id.slice(4)) - 1] = currentPlayer;
 
-    // Check to see if the current player won.
-    if (checkWin(currentPlayer)) {
-        // Increases the winner's point total
-        currentPlayer === "X" ? playerXScore++ : playerOScore++;
+  // Check to see if the current player won.
+  if (checkWin(currentPlayer)) {
+    // Increases the winner's point total
+    currentPlayer === "X" ? playerXScore++ : playerOScore++;
 
-        // Updates the page's punctuation
-        updateScores();
+    // Updates the page's punctuation
+    updateScores();
 
-        // If this was the fifth round, the game concludes, so the next round is started.
-        if (currentRound === 5) {
-            endGame();
-        } else {
-            startNextRound();
-        }
-    } else if (checkTie()) {
-        alert("It's a tie!");
-        startNextRound();
+    // If this was the fifth round, the game concludes, so the next round is started.
+    if (currentRound === 5) {
+      endGame();
     } else {
-        // If no one won as of yet, delay the switch of the current player and the computer's move.
-        if (gameMode === "playerVsMachine" && currentPlayer === "X") {
-            setTimeout(() => {
-                currentPlayer = "O";
-                computerMove();
-            }, 2000);
-        } else {
-            // If it's player vs player mode, just switch the player
-            currentPlayer = currentPlayer === "X" ? "O" : "X";
-        }
+      startNextRound();
     }
+  } else if (checkTie()) {
+    alert("It's a tie!");
+    startNextRound();
+  } else {
+    // If no one won as of yet, the current player is changed.
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    if (gameMode === "playerVsMachine" && currentPlayer === "O") {
+        computerMove();
+    }
+  }
 }
 
-// Function for the computer player to make a move
 function computerMove() {
-    // Set a delay of 2 seconds before the computer makes its move, to make the game feel more realistic
-    setTimeout(() => {
-      // Create an array to store the indices of the empty cells
-      let emptyCells = [];
-    
-      // Populate the emptyCells array
-      for (let i = 0; i < board.length; i++) {
-        if (board[i] === '') {
-          emptyCells.push(i);
-        }
-      }
-    
-      // Initialize the move to an invalid index
-      let move = -1;
-      
-      // Check for winning combinations. If one is available, make that move
-      for (let i = 0; i < winningCombinations.length; i++) {
-        let combination = winningCombinations[i];
-        if (board[combination[0]] === board[combination[1]] && board[combination[0]] !== "" && board[combination[2]] === "") {
-          move = combination[2];
-        } else if (board[combination[1]] === board[combination[2]] && board[combination[1]] !== "" && board[combination[0]] === "") {
-          move = combination[0];
-        } else if (board[combination[0]] === board[combination[2]] && board[combination[0]] !== "" && board[combination[1]] === "") {
-          move = combination[1];
-        }
-      }
+  let emptyCells = [];
   
-      // If no winning combination is found, choose a random empty cell
-      if (move === -1) {
-        move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-      }
-      
-      // Update the board array and the display to reflect the move
-      board[move] = currentPlayer;
-      document.getElementById(`cell${move + 1}`).textContent = currentPlayer;
-      
-      // Check to see if the computer won.
-      if (checkWin(currentPlayer)) {
-        // If the computer won, increment the winner's point total and update the scores on the display
-        currentPlayer === "X" ? playerXScore++ : playerOScore++;
-        updateScores();
-  
-        // If this was the fifth round, end the game. Otherwise, start the next round.
-        if (currentRound === 5) {
-          endGame();
-        } else {
-          startNextRound();
-        }
-      } else if (checkTie()) {
-        // If it's a tie, alert the user and start the next round
-        alert("It's a tie!");
-        startNextRound();
-      } else {
-        // If nobody won and it's not a tie, switch the current player
-        currentPlayer = currentPlayer === "X" ? "O" : "X";
-      }
-    }, 2000); // The delay is set to 2 seconds (2000 milliseconds)
+  for (var i = 0; i < board.length; i++) {
+    if (board[i] == '') {
+      emptyCells.push(i);
+    }
   }
   
+  let move = -1;
+  for(let i = 0; i < winningCombinations.length; i++) {
+    let combination = winningCombinations[i];
+    if (board[combination[0]] === board[combination[1]] && board[combination[0]] !== "" && board[combination[2]] === "") {
+      move = combination[2];
+    } else if (board[combination[1]] === board[combination[2]] && board[combination[1]] !== "" && board[combination[0]] === "") {
+      move = combination[0];
+    } else if (board[combination[0]] === board[combination[2]] && board[combination[0]] !== "" && board[combination[1]] === "") {
+      move = combination[1];
+    }
+  }
+
+  if (move === -1) {
+    move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+  }
+  
+  board[move] = currentPlayer;
+  document.getElementById(`cell${move + 1}`).textContent = currentPlayer;
+  
+  // Check to see if the computer won.
+  if (checkWin(currentPlayer)) {
+    // Increases the winner's point total
+    currentPlayer === "X" ? playerXScore++ : playerOScore++;
+
+    // Updates the page's punctuation
+    updateScores();
+
+    // If this was the fifth round, the game concludes, so the next round is started.
+    if (currentRound === 5) {
+      endGame();
+    } else {
+      startNextRound();
+    }
+  } else if (checkTie()) {
+    alert("It's a tie!");
+    startNextRound();
+  } else {
+    // If no one won as of yet, the current player is changed.
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+  }
+}
 
 // Function to determine whether a player won
 function checkWin(player) {
