@@ -81,56 +81,70 @@ function handleCellClick(event) {
   }
 }
 
+// This function represents the action of the computer making a move.
+// It works for the game mode where the human player is playing against the computer.
 function computerMove() {
-  let emptyCells = [];
-  
-  for (var i = 0; i < board.length; i++) {
-    if (board[i] == '') {
-      emptyCells.push(i);
+    // Create an array to store the indices of the empty cells on the board.
+    let emptyCells = [];
+    
+    // Loop through the board. If a cell is empty (its value is an empty string), 
+    // push its index to the emptyCells array.
+    for (var i = 0; i < board.length; i++) {
+      if (board[i] == '') {
+        emptyCells.push(i);
+      }
     }
-  }
+    
+    // Initially, set the computer's move to an invalid index (-1).
+    let move = -1;
   
-  let move = -1;
-  for(let i = 0; i < winningCombinations.length; i++) {
-    let combination = winningCombinations[i];
-    if (board[combination[0]] === board[combination[1]] && board[combination[0]] !== "" && board[combination[2]] === "") {
-      move = combination[2];
-    } else if (board[combination[1]] === board[combination[2]] && board[combination[1]] !== "" && board[combination[0]] === "") {
-      move = combination[0];
-    } else if (board[combination[0]] === board[combination[2]] && board[combination[0]] !== "" && board[combination[1]] === "") {
-      move = combination[1];
+    /* The computer tries to find a winning move. It looks for two similar values 
+    in a winning combination and an empty space to complete the combo.
+    If such a move is found, it sets the move variable to the index of that empty space.*/
+    for(let i = 0; i < winningCombinations.length; i++) {
+      let combination = winningCombinations[i];
+      if (board[combination[0]] === board[combination[1]] && board[combination[0]] !== "" && board[combination[2]] === "") {
+        move = combination[2];
+      } else if (board[combination[1]] === board[combination[2]] && board[combination[1]] !== "" && board[combination[0]] === "") {
+        move = combination[0];
+      } else if (board[combination[0]] === board[combination[2]] && board[combination[0]] !== "" && board[combination[1]] === "") {
+        move = combination[1];
+      }
     }
-  }
-
-  if (move === -1) {
-    move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-  }
   
-  board[move] = currentPlayer;
-  document.getElementById(`cell${move + 1}`).textContent = currentPlayer;
-  
-  // Check to see if the computer won.
-  if (checkWin(currentPlayer)) {
-    // Increases the winner's point total
-    currentPlayer === "X" ? playerXScore++ : playerOScore++;
-
-    // Updates the page's punctuation
-    updateScores();
-
-    // If this was the fifth round, the game concludes, so the next round is started.
-    if (currentRound === 5) {
-      endGame();
-    } else {
+    // If no winning combination is found, the computer makes a random move.
+    // It picks a random index from the array of empty cells and sets the move variable to it.
+    if (move === -1) {
+      move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+    }
+    
+    // The computer makes its move by placing its marker ("O") at the chosen index 
+    // on the board and reflecting this move on the display.
+    board[move] = currentPlayer;
+    document.getElementById(`cell${move + 1}`).textContent = currentPlayer;
+    
+    /* After the computer makes its move, it checks if it has won the game.
+    If it has, it increases its score, updates the scores on the display, 
+    and checks if the game is over (i.e., if it was the fifth round).
+    If the game is not over, it starts the next round.
+    If the game has resulted in a tie, it alerts the user and starts the next round.
+    If the game is not over and it's not a tie, it simply changes the current player.*/
+    if (checkWin(currentPlayer)) {
+      currentPlayer === "X" ? playerXScore++ : playerOScore++;
+      updateScores();
+      if (currentRound === 5) {
+        endGame();
+      } else {
+        startNextRound();
+      }
+    } else if (checkTie()) {
+      alert("It's a tie!");
       startNextRound();
+    } else {
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
-  } else if (checkTie()) {
-    alert("It's a tie!");
-    startNextRound();
-  } else {
-    // If no one won as of yet, the current player is changed.
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
-}
+  
 
 // Function to determine whether a player won
 function checkWin(player) {
