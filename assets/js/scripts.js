@@ -105,6 +105,34 @@ function computerMove() {
   if (move === -1) {
     move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
   }
+
+  setTimeout(() => {
+    board[move] = currentPlayer;
+    document.getElementById(`cell${move + 1}`).textContent = currentPlayer;
+  
+    // Check to see if the computer won.
+    if (checkWin(currentPlayer)) {
+      // Increases the winner's point total
+      currentPlayer === "X" ? playerXScore++ : playerOScore++;
+
+      // Updates the page's punctuation
+      updateScores();
+
+      // If this was the fifth round, the game concludes, so the next round is started.
+      if (currentRound === 5) {
+        endGame();
+      } else {
+        startNextRound();
+      }
+    } else if (checkTie()) {
+      alert("It's a tie!");
+      startNextRound();
+    } else {
+      // If no one won as of yet, the current player is changed.
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
+    }
+  }, 2000); // 2000 milliseconds = 2 seconds delay before the computer makes a move
+
   
   board[move] = currentPlayer;
   document.getElementById(`cell${move + 1}`).textContent = currentPlayer;
