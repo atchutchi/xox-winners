@@ -54,4 +54,4 @@ The site has a footer with the description of the copyrights
 ## Testing
 
 ### Bugs and Solutions
-
+The site was not difficult to create, although I had a lot of difficulties in making a flow that would facilitate the development of the game, after a lot of research I found these two links ![https://codepen.io/lando464/pen/BPGEKO] and ![https://codepen.io/janschreiber/pen/xZbEvM] from the game where I inspired to create the board and the javaScript code.
