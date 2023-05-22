@@ -43,10 +43,15 @@ Users are welcomed with the game's visually beautiful and user-friendly interfac
 ### Game Restart: 
 - Restart the game at any time with a click of the "Restart" button to start a fresh match.
 
-![Rules](https://balsamiq.cloud/skteh5n/pz7ucs/r655B)
+![Rules](https://share.balsamiq.com/c/aJkBVQfZshrJg5XFNQk8wv.png)
 
 The game has a rules section that describes how the game works and its rules so as to facilitate players to have a more competitive and fun game.
 
 ![Footer](https://share.balsamiq.com/c/gSiienWh7tR8EbqWU86UYB.png)
 
 The site has a footer with the description of the copyrights
+
+## Testing
+
+### Bugs and Solutions
+
