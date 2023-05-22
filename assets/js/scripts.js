@@ -180,13 +180,6 @@ function startNextRound() {
     computerMove();
   }
 }
-
-// Função para exibir o resultado do jogo na div resultMessage
-function displayResultMessage(result) {
-    const resultMessage = document.getElementById("resultMessage");
-    resultMessage.textContent = result;
-}
-  
     
 // Function to stop the game after the last round
 function endGame() {
