@@ -2,6 +2,7 @@
 let playerXScore = 0;
 let playerOScore = 0;
 let currentRound = 1;
+const totalRounds = 5; // Define o número total de rodadas
 
 // Variables to keep track of the game mode and whether play is active
 let gameMode = null;
@@ -63,8 +64,8 @@ function handleCellClick(event) {
     // Updates the page's punctuation
     updateScores();
 
-    // If this was the fifth round, the game concludes, so the next round is started.
-    if (currentRound === 5) {
+    // If this was the last round, the game concludes, so the next round is not started.
+    if (currentRound === totalRounds) {
       endGame();
     } else {
       startNextRound();
@@ -80,6 +81,7 @@ function handleCellClick(event) {
     }
   }
 }
+
 // This function represents the action of the computer making a move.
 // It works for the game mode where the human player is playing against the computer.
 function computerMove() {
@@ -121,7 +123,7 @@ function computerMove() {
   
   /* After the computer makes its move, it checks if it has won the game.
     If it has, it increases its score, updates the scores on the display, 
-    and checks if the game is over (i.e., if it was the fifth round).
+    and checks if the game is over (i.e., if it was the last round).
     If the game is not over, it starts the next round.
     If the game has resulted in a tie, it alerts the user and starts the next round.
     If the game is not over and it's not a tie, it simply changes the current player.*/
@@ -132,8 +134,8 @@ function computerMove() {
     // Updates the page's punctuation
     updateScores();
 
-    // If this was the fifth round, the game concludes, so the next round is started.
-    if (currentRound === 5) {
+    // If this was the last round, the game concludes, so the next round is not started.
+    if (currentRound === totalRounds) {
       endGame();
     } else {
       startNextRound();
@@ -179,7 +181,7 @@ function startNextRound() {
   }
 }
     
-// Function to stop the game after 5 rounds
+// Function to stop the game after the last round
 function endGame() {
   gameInProgress = false;
     
@@ -190,8 +192,14 @@ function endGame() {
   } else {
     alert("The game is a draw!");
   }
+
+  // Reset scores and current round to restart the game
+  playerXScore = 0;
+  playerOScore = 0;
+  currentRound = 1;
+  updateScores();
 }
-    
+
 // Function to update the scores
 function updateScores() {
   document.getElementById("playerXScore").textContent = playerXScore;
