@@ -180,6 +180,13 @@ function startNextRound() {
     computerMove();
   }
 }
+
+// Função para exibir o resultado do jogo na div resultMessage
+function displayResultMessage(result) {
+    const resultMessage = document.getElementById("resultMessage");
+    resultMessage.textContent = result;
+}
+  
     
 // Function to stop the game after the last round
 function endGame() {
@@ -200,8 +207,12 @@ function endGame() {
   updateScores();
 }
 
-// Function to update the scores
+// Function to update the scores and display the result message
 function updateScores() {
   document.getElementById("playerXScore").textContent = playerXScore;
   document.getElementById("playerOScore").textContent = playerOScore;
+
+  // Display the result message in the <div> with id="resultMessage"
+  const resultMessageElement = document.getElementById("resultMessage");
+  resultMessageElement.textContent = `Player ${playerXScore > playerOScore ? "X" : "O"} wins the game!`;
 }
