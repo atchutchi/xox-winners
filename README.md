@@ -71,3 +71,15 @@ The site was not difficult to create, although I had a lot of difficulties in ma
 - Description: computer's decision-making process for selecting a move. Specifically, the previous implementation of computerMove() did not consider winning moves for the computer.
 **Solution:** Create a for with winningCombination by following this [code](https://codepen.io/janschreiber/pen/xZbEvM)
 **Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/6f23323aa256dfb2138659c873bb38d15acbbb6a)
+
+### Validator Testing
+
+#### HTML
+by running the test at [Validator w3 html](https://validator.w3.org/) Document checking completed. No errors or warnings to show
+
+#### CSS
+by running the test at [Jigsaw w3 css/](https://jigsaw.w3.org/css-validator/)
+W3C CSS Validation Results for TextArea (CSS Level 3 + SVG)
+No errors were found in your stylesheet.
+
+#### JavaScript
