@@ -5,7 +5,7 @@
 let playerXScore = 0;
 let playerOScore = 0;
 let currentRound = 1;
-const totalRounds = 5; // Define o número total de rodadas
+const totalRounds = 5; // Sets the total number of rounds
 
 // Variables to keep track of the game mode and whether play is active
 let gameMode = null;
