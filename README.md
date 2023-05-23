@@ -83,3 +83,13 @@ W3C CSS Validation Results for TextArea (CSS Level 3 + SVG)
 No errors were found in your stylesheet.
 
 #### JavaScript
+
+
+## Deployment
+The site was deployed to GitHub pages. The steps to deploy are as follows:
+- Log in to your GitHub account and go to the main page of your repository.
+- Click on the "Settings" tab at the top of the repository page.
+- Scroll down to the "GitHub Pages" section.
+- In the "Source" drop-down menu, select "main" or "master" (depending on your setup) and choose the "root" or "docs" folder if you are using a specific folder to host your site.
+- Click on "Save."
+- The page will refresh, and after a few moments, you will see a message stating that the deployment was successful. The live link to your site will be provided just below this message.
