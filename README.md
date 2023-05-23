@@ -84,6 +84,10 @@ The site was not difficult to create, although I had a lot of difficulties in ma
 **Solution:** Create a for with winningCombination by following this [code](https://codepen.io/janschreiber/pen/xZbEvM)
 **Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/6f23323aa256dfb2138659c873bb38d15acbbb6a)
 
+### Remaining Bugs
+
+### Future Developments
+
 ### Validator Testing
 
 #### HTML
