@@ -1,3 +1,6 @@
+// This code is adapted from the tic-tac-toe game by janschreiber on CodePen: https://codepen.io/janschreiber/pen/xZbEvM
+// Original code credit goes to janschreiber
+
 // Variables to store player scores and current round
 let playerXScore = 0;
 let playerOScore = 0;
@@ -200,12 +203,8 @@ function endGame() {
   updateScores();
 }
 
-// Function to update the scores and display the result message
+// Function to update the scores
 function updateScores() {
   document.getElementById("playerXScore").textContent = playerXScore;
   document.getElementById("playerOScore").textContent = playerOScore;
-
-  // Display the result message in the <div> with id="resultMessage"
-  const resultMessageElement = document.getElementById("resultMessage");
-  resultMessageElement.textContent = `Player ${playerXScore > playerOScore ? "X" : "O"} wins the game!`;
 }
