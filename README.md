@@ -93,3 +93,23 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 - In the "Source" drop-down menu, select "main" or "master" (depending on your setup) and choose the "root" or "docs" folder if you are using a specific folder to host your site.
 - Click on "Save."
 - The page will refresh, and after a few moments, you will see a message stating that the deployment was successful. The live link to your site will be provided just below this message.
+
+## Credits
+
+### Content
+
+- The text for the "XOX Winners" project was inspired on my knowledge and this [Link](https://www.bigmae.com/regras-jogo-da-velha/).
+- The font of the text was used google font (https://fonts.google.com/).
+
+### Media
+- The logo of the project was created by me.
+- Screenshot of the responsive where taken from (https://ui.dev/amiresponsive?url=https://atchutchi.github.io/xox-winners/).
+- To create Skeleton of the project it was used the Balsamiq wireframe (https://balsamiq.cloud/skteh5n/pz7ucs).
+
+
+### Code
+- The code was inspired by these 2 versions [lando464](https://codepen.io/lando464/pen/BPGEKO) & [janschreiber](https://codepen.io/janschreiber/pen/xZbEvM)
+- I used [codeanywhere](https://app.codeanywhere.com/) for the development of the project as a whole.
+- Assistance with HTML, CSS was provided by [Developer Mozilla](https://developer.mozilla.org/) [CSS-tricks](https://css-tricks.com/), [TikTok](https://www.tiktok.com/@thewebforce/video/7233395940181183745?_t=8cYUmROW3SH&_r=1).
+- Tutorials and documentation from Code Institute Love Math and youtube video [https://www.youtube.com/watch?v=lhNdUVh3qCc&t=14s].
+- [My Mentor Can Sücüllü] were consulted during the development process.
