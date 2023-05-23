@@ -118,8 +118,12 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 - Screenshot of the responsive where taken from (https://ui.dev/amiresponsive?url=https://atchutchi.github.io/xox-winners/).
 - To create Skeleton of the project it was used the Balsamiq [wireframe](https://balsamiq.cloud/skteh5n/pz7ucs).
 
+### Language Used
+- HTML5
+- CSS
+- JAVASCRIPT
 
-### Code
+### Codes
 - The code was inspired by these 2 versions [lando464](https://codepen.io/lando464/pen/BPGEKO) & [janschreiber](https://codepen.io/janschreiber/pen/xZbEvM)
 - I used [codeanywhere](https://app.codeanywhere.com/) for the development of the project as a whole.
 - Assistance with HTML, CSS was provided by [Developer Mozilla](https://developer.mozilla.org/) [CSS-tricks](https://css-tricks.com/), [TikTok](https://www.tiktok.com/@thewebforce/video/7233395940181183745?_t=8cYUmROW3SH&_r=1).
