@@ -84,7 +84,7 @@ The site was not difficult to create, although I had a lot of difficulties in ma
 **Solution:** Create a for with winningCombination by following this [code](https://codepen.io/janschreiber/pen/xZbEvM)
 **Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/6f23323aa256dfb2138659c873bb38d15acbbb6a)
 
-**Problem:** Game wouldn't restart in player vs machine mode after 5 rounds
+4. **Problem:** Game wouldn't restart in player vs machine mode after 5 rounds
 - Description: The game always continues after 5 rounds, sometimes it freezes and does not continue and does not reset the game board
 **Solution:** I went to the endGame function and changed if playerScores >=5 to announce the winner and start nextRound. then I removed the if condition (currentRound === totalRounds) and called endGame() in the handleCellClick(event) function and computerMove() function.
 **Commit 1:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/2875c5534c8e15758557b5b37bb5217818cdd021)
