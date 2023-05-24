@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 // This code is adapted from the tic-tac-toe game by janschreiber on CodePen: https://codepen.io/janschreiber/pen/xZbEvM
 // Original code credit goes to janschreiber
 

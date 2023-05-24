@@ -106,7 +106,8 @@ W3C CSS Validation Results for TextArea (CSS Level 3 + SVG)
 No errors were found in your stylesheet.
 
 #### JavaScript
-
+The code was tested on [jshint](https://jshint.com/)
+Without errors
 
 ## Deployment
 The site was deployed to GitHub pages. The steps to deploy are as follows:
