@@ -186,22 +186,28 @@ function startNextRound() {
     
 // Function to stop the game after the last round
 function endGame() {
-  gameInProgress = false;
     
-  if (playerXScore > playerOScore) {
+  gameInProgress = false;
+  if (playerXScore >= 5) {
     alert("Player X wins the game!");
-  } else if (playerOScore > playerXScore) {
+    playerXScore = 0;
+    playerOScore = 0;
+  } else if (playerOScore >= 5) {
     alert("Player O wins the game!");
+    playerXScore = 0;
+    playerOScore = 0;
   } else {
-    alert("The game is a draw!");
+    return;
   }
 
   // Reset scores and current round to restart the game
-  playerXScore = 0;
-  playerOScore = 0;
   currentRound = 1;
   updateScores();
+
+  // Start the next round
+  startNextRound();
 }
+
 
 // Function to update the scores
 function updateScores() {
