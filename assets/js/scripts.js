@@ -67,16 +67,16 @@ function handleCellClick(event) {
     // Updates the page's punctuation
     updateScores();
 
-    // If this was the last round, the game concludes, so the next round is not started.
-    if (currentRound === totalRounds) {
-      endGame();
+    // End the game if a player has won 5 times
+    if (playerXScore >= 5 || playerOScore >= 5) {
+        endGame();
     } else {
-      startNextRound();
+        startNextRound();
     }
-  } else if (checkTie()) {
+ } else if (checkTie()) {
     alert("It's a tie!");
     startNextRound();
-  } else {
+ } else {
     // If no one won as of yet, the current player is changed.
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     if (gameMode === "playerVsMachine" && currentPlayer === "O") {
@@ -130,25 +130,25 @@ function computerMove() {
     If the game is not over, it starts the next round.
     If the game has resulted in a tie, it alerts the user and starts the next round.
     If the game is not over and it's not a tie, it simply changes the current player.*/
-  if (checkWin(currentPlayer)) {
-    // Increases the winner's point total
-    currentPlayer === "X" ? playerXScore++ : playerOScore++;
-
-    // Updates the page's punctuation
-    updateScores();
-
-    // If this was the last round, the game concludes, so the next round is not started.
-    if (currentRound === totalRounds) {
-      endGame();
+    if (checkWin(currentPlayer)) {
+        // Increases the winner's point total
+        currentPlayer === "X" ? playerXScore++ : playerOScore++;
+  
+        // Updates the page's punctuation
+        updateScores();
+  
+        // End the game if a player has won 5 times
+        if (playerXScore >= 5 || playerOScore >= 5) {
+            endGame();
+        } else {
+            startNextRound();
+        }
+    } else if (checkTie()) {
+        alert("It's a tie!");
+        startNextRound();
     } else {
-      startNextRound();
-    }
-  } else if (checkTie()) {
-    alert("It's a tie!");
-    startNextRound();
-  } else {
-    // If no one won as of yet, the current player is changed.
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+        // If no one won as of yet, the current player is changed.
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
 }
 
@@ -186,7 +186,7 @@ function startNextRound() {
     
 // Function to stop the game after the last round
 function endGame() {
-    
+
   gameInProgress = false;
   if (playerXScore >= 5) {
     alert("Player X wins the game!");
