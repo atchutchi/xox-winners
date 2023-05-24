@@ -90,9 +90,10 @@ The site was not difficult to create, although I had a lot of difficulties in ma
 **Commit 1:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/2875c5534c8e15758557b5b37bb5217818cdd021)
 **Commit 2:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/122355cd8b09740753386ea9c80b7879ccbb5a15)
 
-### Remaining Bugs
 
 ### Future Developments
+- Add sound effect when computer and player make their moves;
+- Add difficulties in the game (Easy, Medium and Difficult);
 
 ### Validator Testing
 
