@@ -90,6 +90,10 @@ The site was not difficult to create, although I had a lot of difficulties in ma
 **Commit 1:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/2875c5534c8e15758557b5b37bb5217818cdd021)
 **Commit 2:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/122355cd8b09740753386ea9c80b7879ccbb5a15)
 
+5. **Problem:** After I play, I can play before the machine makes its move
+- Description: In the game's "Player vs Machine" mode, the player had the ability to make a move during the machine's turn. This was because the click event on board cells was not disabled during machine play, allowing the player to interact with the board and make a move.
+**Solution:** The solution to this problem involved removing the click event from all cells when it is the machine's turn to move, and adding it back after the machine has made its move. This has been implemented in the handleCellClick, computerMove and startNextRound functions. Now, the player can only interact with the board when it's their turn, preventing them from making a move during the machine's turn.
+**Commit 1:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/af836f3ad7992ed94e36ce42659593c52f8a9e28)
 
 ### Future Developments
 - Add sound effect when computer and player make their moves;
