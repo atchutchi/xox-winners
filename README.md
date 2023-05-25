@@ -109,6 +109,11 @@ No errors were found in your stylesheet.
 The code was tested on [jshint](https://jshint.com/)
 Without errors
 
+#### Accessibility
+- I confirmed that colors and fonts chosen are easy to read and accessible by running it through lightouse in chrome devtools
+
+![lighthouse](./assets/images/lighthouse.png)
+
 ## Deployment
 The site was deployed to GitHub pages. The steps to deploy are as follows:
 - Log in to your GitHub account and go to the main page of your repository.
