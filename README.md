@@ -115,6 +115,12 @@ The subsequent web browsers were utilized to evaluate the website's compatibilit
 - [Tablet](./assets/images/edge-tablet.png)
 - [Smartphone](./assets/images/edge-smartphone.png)
 
+#### Firefox
+- [Desktop](./assets/images/firefox-desktop.png)
+- [Laptop](./assets/images/firefox-laptop.png)
+- [Tablet](./assets/images/firefox-tablet.png)
+- [Smartphone](./assets/images/firefox-smartphone.png)
+
 ### Validator Testing
 
 #### HTML
