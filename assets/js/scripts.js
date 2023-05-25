@@ -83,6 +83,9 @@ function handleCellClick(event) {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     if (gameMode === "playerVsMachine" && currentPlayer === "O") {
         setTimeout(computerMove, 1000); // Wait for 1 seconds before the computer makes its move
+        for (let i = 1; i <= 9; i++) {
+            document.getElementById(`cell${i}`).removeEventListener("click", handleCellClick);
+        }
     }
   }
 }
@@ -152,6 +155,9 @@ function computerMove() {
         // If no one won as of yet, the current player is changed.
         currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
+  for (let i = 1; i <= 9; i++) {
+    document.getElementById(`cell${i}`).addEventListener("click", handleCellClick);
+}
 }
 
 // Function to determine whether a player won
