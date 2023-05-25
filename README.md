@@ -99,6 +99,22 @@ The site was not difficult to create, although I had a lot of difficulties in ma
 - Add sound effect when computer and player make their moves;
 - Add difficulties in the game (Easy, Medium and Difficult);
 
+
+### Responsivity
+The subsequent web browsers were utilized to evaluate the website's compatibility and consistent appearance. Comprehensive responsiveness tests were conducted, and the results indicated satisfactory performance across these platforms, ensuring a seamless user experience.
+
+#### Chrome
+- [Desktop](./assets/images/chrome-desktop.png)
+- [Laptop](./assets/images/chrome-laptop.png)
+- [Tablet](./assets/images/chrome-tablet.png)
+- [Smartphone](./assets/images/chrome-smartphone.png)
+
+#### Edge
+- [Desktop](./assets/images/edge-desktop.png)
+- [Laptop](./assets/images/edge-laptop.png)
+- [Tablet](./assets/images/edge-tablet.png)
+- [Smartphone](./assets/images/edge-smartphone.png)
+
 ### Validator Testing
 
 #### HTML
