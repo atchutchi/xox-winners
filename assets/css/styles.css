@@ -64,6 +64,12 @@ h2 {
     text-align: center;
 }
 
+#round-display {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
 .game-container {
     display: none;
     flex-wrap: wrap;
