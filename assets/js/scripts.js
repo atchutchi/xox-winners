@@ -31,18 +31,34 @@ const winningCombinations = [
 // Identify who the current player is.
 let currentPlayer = "X";
 
+// Get the new elements
+const roundDisplay = document.getElementById('round-display');
+const roundNumber = document.getElementById('round-number');
+const roundResult = document.getElementById('round-result');
+const continueBtn = document.getElementById('continue-btn');
+
 // Adds an event listener to each cell.
 for (let i = 1; i <= 9; i++) {
-  const cell = document.getElementById(`cell${i}`);
-  cell.addEventListener("click", handleCellClick);
-}
-
-// Add event listeners to the game mode selection buttons.
-document.getElementById("playerVsPlayer").addEventListener("click", () => handleGameModeSelection("playerVsPlayer"));
-document.getElementById("playerVsMachine").addEventListener("click", () => handleGameModeSelection("playerVsMachine"));
-
-// Add an event listener to the Restart button to refresh the page.
-document.getElementById("restartBtn").addEventListener("click", () => location.reload());
+    const cell = document.getElementById(`cell${i}`);
+    cell.addEventListener("click", handleCellClick);
+  }
+  
+  // Add event listeners to the game mode selection buttons.
+  document.getElementById("playerVsPlayer").addEventListener("click", () => handleGameModeSelection("playerVsPlayer"));
+  document.getElementById("playerVsMachine").addEventListener("click", () => handleGameModeSelection("playerVsMachine"));
+  
+  // Add an event listener to the Restart button to refresh the page.
+  document.getElementById("restartBtn").addEventListener("click", () => location.reload());
+  
+  // Add event listeners to the game mode selection buttons.
+  document.getElementById("playerVsPlayer").addEventListener("click", () => handleGameModeSelection("playerVsPlayer"));
+  document.getElementById("playerVsMachine").addEventListener("click", () => handleGameModeSelection("playerVsMachine"));
+  
+  // Add an event listener to the Restart button to refresh the page.
+  document.getElementById("restartBtn").addEventListener("click", () => location.reload());
+  
+  // Add event listener to the Continue button
+  continueBtn.addEventListener('click', continueGame);
 
 // Function to deal with game mode selection and game launch
 function handleGameModeSelection(mode) {
