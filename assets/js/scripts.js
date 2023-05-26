@@ -159,26 +159,28 @@ function computerMove() {
     if (checkWin(currentPlayer)) {
         // Increases the winner's point total
         currentPlayer === "X" ? playerXScore++ : playerOScore++;
-  
+    
         // Updates the page's punctuation
         updateScores();
-  
+    
         // End the game if a player has won 5 times
         if (playerXScore >= 5 || playerOScore >= 5) {
             endGame();
         } else {
             startNextRound();
         }
-    } else if (checkTie()) {
+        roundResult.textContent = `Player ${currentPlayer} Won!`; // Display round result
+      } else if (checkTie()) {
         alert("It's a tie!");
         startNextRound();
-    } else {
+        roundResult.textContent = `It's a Tie!`; // Display round result
+      } else {
         // If no one won as of yet, the current player is changed.
         currentPlayer = currentPlayer === "X" ? "O" : "X";
-  }
-  for (let i = 1; i <= 9; i++) {
-    document.getElementById(`cell${i}`).addEventListener("click", handleCellClick);
-}
+      }
+      for (let i = 1; i <= 9; i++) {
+        document.getElementById(`cell${i}`).addEventListener("click", handleCellClick);
+      }
 }
 
 // Function to determine whether a player won
