@@ -70,6 +70,12 @@ h2 {
 }
 
 
+#round-display {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
 .game-container {
     display: none;
     flex-wrap: wrap;
