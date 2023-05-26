@@ -72,39 +72,46 @@ function handleGameModeSelection(mode) {
 function handleCellClick(event) {
     // If the game is not in progress or the cell has already been filled, return.
     if (!gameInProgress || event.target.textContent !== "") return;
-
+  
     // Add the current player's icon to the board array
     event.target.textContent = currentPlayer;
     board[parseInt(event.target.id.slice(4)) - 1] = currentPlayer;
-
-  // Check to see if the current player won.
-  if (checkWin(currentPlayer)) {
-    // Increases the winner's point total
-    currentPlayer === "X" ? playerXScore++ : playerOScore++;
-
-    // Updates the page's punctuation
-    updateScores();
-
-    // End the game if a player has won 5 times
-    if (playerXScore >= 5 || playerOScore >= 5) {
-        endGame();
-    } else {
-        startNextRound();
-    }
- } else if (checkTie()) {
-    alert("It's a tie!");
-    startNextRound();
- } else {
-    // If no one won as of yet, the current player is changed.
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-    if (gameMode === "playerVsMachine" && currentPlayer === "O") {
-        setTimeout(computerMove, 1000); // Wait for 1 seconds before the computer makes its move
-        for (let i = 1; i <= 9; i++) {
-            document.getElementById(`cell${i}`).removeEventListener("click", handleCellClick);
-        }
+  
+    // Check to see if the current player won.
+    if (checkWin(currentPlayer)) {
+      // Increases the winner's point total
+      currentPlayer === "X" ? playerXScore++ : playerOScore++;
+  
+      // Updates the page's punctuation
+      updateScores();
+  
+      // End the game if a player has won 5 times
+      if (playerXScore >= 5 || playerOScore >= 5) {
+          endGame();
+      } else {
+          startNextRound();
+      }
+      roundResult.textContent = `Player ${currentPlayer} Won!`; // Display round result
+      document.querySelector(".game-container").classList.remove("active");
+      document.getElementById("restartBtn").classList.remove("active");
+      roundDisplay.style.display = 'block'; // Show round display
+   } else if (checkTie()) {
+      startNextRound();
+      roundResult.textContent = `It's a Tie!`; // Display round result
+      document.querySelector(".game-container").classList.remove("active");
+      document.getElementById("restartBtn").classList.remove("active");
+      roundDisplay.style.display = 'block'; // Show round display
+   } else {
+      // If no one won as of yet, the current player is changed.
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
+      if (gameMode === "playerVsMachine" && currentPlayer === "O") {
+          setTimeout(computerMove, 1000); // Wait for 1 seconds before the computer makes its move
+          for (let i = 1; i <= 9; i++) {
+              document.getElementById(`cell${i}`).removeEventListener("click", handleCellClick);
+          }
+      }
     }
   }
-}
 
 // This function represents the action of the computer making a move.
 // It works for the game mode where the human player is playing against the computer.
