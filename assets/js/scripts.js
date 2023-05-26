@@ -245,3 +245,12 @@ function updateScores() {
   document.getElementById("playerXScore").textContent = playerXScore;
   document.getElementById("playerOScore").textContent = playerOScore;
 }
+
+// Add continueGame function
+function continueGame() {
+    startNextRound();
+    roundDisplay.style.display = 'none'; // Hide round display
+    document.querySelector(".game-container").classList.add("active");
+    document.getElementById("restartBtn").classList.add("active");
+  }
+  
