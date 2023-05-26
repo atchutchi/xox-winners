@@ -59,7 +59,7 @@ h2 {
     letter-spacing: 1px;
 }
 
-.game-setup {
+#game-setup {
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -82,7 +82,7 @@ h2 {
 }
 
 
-.col2 {
+#col2 {
     flex: 1;
     padding: 1rem;
 }
