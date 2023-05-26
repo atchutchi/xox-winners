@@ -1,4 +1,4 @@
-/* jshint esversion: 6 */
+//jshint esversion: 6 
 
 // This code is adapted from the tic-tac-toe game by janschreiber on CodePen: https://codepen.io/janschreiber/pen/xZbEvM
 // Original code credit goes to janschreiber
@@ -105,9 +105,8 @@ function computerMove() {
   
   // Initially, set the computer's move to an invalid index (-1).
   let move = -1;
-  /* The computer tries to find a winning move. It looks for two similar values 
-    in a winning combination and an empty space to complete the combo.
-    If such a move is found, it sets the move variable to the index of that empty space.*/
+    //The computer tries to find a winning move. It looks for two similar values in a winning combination and an empty space to complete the combo.
+    //If such a move is found, it sets the move variable to the index of that empty space.
   for(let i = 0; i < winningCombinations.length; i++) {
     let combination = winningCombinations[i];
     if (board[combination[0]] === board[combination[1]] && board[combination[0]] !== "" && board[combination[2]] === "") {
@@ -129,12 +128,11 @@ function computerMove() {
   board[move] = currentPlayer;
   document.getElementById(`cell${move + 1}`).textContent = currentPlayer;
   
-  /* After the computer makes its move, it checks if it has won the game.
-    If it has, it increases its score, updates the scores on the display, 
-    and checks if the game is over (i.e., if it was the last round).
-    If the game is not over, it starts the next round.
-    If the game has resulted in a tie, it alerts the user and starts the next round.
-    If the game is not over and it's not a tie, it simply changes the current player.*/
+    //After the computer makes its move, it checks if it has won the game.
+    //If it has, it increases its score, updates the scores on the display, and checks if the game is over (i.e., if it was the last round).
+    //If the game is not over, it starts the next round.
+    //If the game has resulted in a tie, it alerts the user and starts the next round.
+    //If the game is not over and it's not a tie, it simply changes the current player.
     if (checkWin(currentPlayer)) {
         // Increases the winner's point total
         currentPlayer === "X" ? playerXScore++ : playerOScore++;
