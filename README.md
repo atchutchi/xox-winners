@@ -69,31 +69,31 @@ The site has a footer with the description of the copyrights
 The site was not difficult to create, although I had a lot of difficulties in making a flow that would facilitate the development of the game, after a lot of research I found these two links (https://codepen.io/lando464/pen/BPGEKO) and (https://codepen.io/janschreiber/pen/xZbEvM) from the game where I inspired to create the board and the javaScript code.
 
 1. **Problem:** No game logic implemented
-- Description: Initially, the project lacked the necessary game logic for handling player moves, win detection, and round tracking.
-**Solution:** Implemented the game logic by adding event listeners to each cell for player moves, creating an array to store the board state, and implementing win detection using predefined winning combinations.
-**Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/89cea70cb98bfe9c4bff84ec49b68359dddd26f2)
+- **Description:** Initially, the project lacked the necessary game logic for handling player moves, win detection, and round tracking.
+- **Solution:** Implemented the game logic by adding event listeners to each cell for player moves, creating an array to store the board state, and implementing win detection using predefined winning combinations.
+- **Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/89cea70cb98bfe9c4bff84ec49b68359dddd26f2)
 
 
-2. No Restart Functionality
-- Description: The game lacked a restart functionality to reset the game state and scores.
-**Solution:** Added an event listener to the restart button, which reloads the page to restart the game.
-**Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/4849fbdb09931a2ca03241906bb63b6d817c87b6)
+2. **Problem:** No Restart Functionality
+- **Description:** The game lacked a restart functionality to reset the game state and scores.
+- **Solution:** Added an event listener to the restart button, which reloads the page to restart the game.
+- **Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/4849fbdb09931a2ca03241906bb63b6d817c87b6)
 
-3. Computer decision did not consider winning
-- Description: computer's decision-making process for selecting a move. Specifically, the previous implementation of computerMove() did not consider winning moves for the computer.
-**Solution:** Create a for with winningCombination by following this [code](https://codepen.io/janschreiber/pen/xZbEvM)
-**Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/6f23323aa256dfb2138659c873bb38d15acbbb6a)
+3. **Problem:** Computer decision did not consider winning
+- **Description:** computer's decision-making process for selecting a move. Specifically, the previous implementation of computerMove() did not consider winning moves for the computer.
+- **Solution:** Create a for with winningCombination by following this [code](https://codepen.io/janschreiber/pen/xZbEvM)
+- **Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/6f23323aa256dfb2138659c873bb38d15acbbb6a)
 
 4. **Problem:** Game wouldn't restart in player vs machine mode after 5 rounds
-- Description: The game always continues after 5 rounds, sometimes it freezes and does not continue and does not reset the game board
-**Solution:** I went to the endGame function and changed if playerScores >=5 to announce the winner and start nextRound. then I removed the if condition (currentRound === totalRounds) and called endGame() in the handleCellClick(event) function and computerMove() function.
-**Commit 1:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/2875c5534c8e15758557b5b37bb5217818cdd021)
-**Commit 2:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/122355cd8b09740753386ea9c80b7879ccbb5a15)
+- **Description:** The game always continues after 5 rounds, sometimes it freezes and does not continue and does not reset the game board
+- **Solution:** I went to the endGame function and changed if playerScores >=5 to announce the winner and start nextRound. then I removed the if condition (currentRound === totalRounds) and called endGame() in the handleCellClick(event) function and computerMove() function.
+- **Commit 1:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/2875c5534c8e15758557b5b37bb5217818cdd021)
+- **Commit 2:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/122355cd8b09740753386ea9c80b7879ccbb5a15)
 
 5. **Problem:** After I play, I can play before the machine makes its move
-- Description: In the game's "Player vs Machine" mode, the player had the ability to make a move during the machine's turn. This was because the click event on board cells was not disabled during machine play, allowing the player to interact with the board and make a move.
-**Solution:** The solution to this problem involved removing the click event from all cells when it is the machine's turn to move, and adding it back after the machine has made its move. This has been implemented in the handleCellClick, computerMove and startNextRound functions. Now, the player can only interact with the board when it's their turn, preventing them from making a move during the machine's turn.
-**Commit 1:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/af836f3ad7992ed94e36ce42659593c52f8a9e28)
+- **Description:** In the game's "Player vs Machine" mode, the player had the ability to make a move during the machine's turn. This was because the click event on board cells was not disabled during machine play, allowing the player to interact with the board and make a move.
+- **Solution:** The solution to this problem involved removing the click event from all cells when it is the machine's turn to move, and adding it back after the machine has made its move. This has been implemented in the handleCellClick, computerMove and startNextRound functions. Now, the player can only interact with the board when it's their turn, preventing them from making a move during the machine's turn.
+- **Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/af836f3ad7992ed94e36ce42659593c52f8a9e28)
 
 ### Future Developments
 - Add sound effect when computer and player make their moves;
