@@ -210,22 +210,23 @@ function checkTie() {
 
 // Function to prepare the game for the upcoming round
 function startNextRound() {
-  // Clear the board
-  board = ["", "", "", "", "", "", "", "", ""];
-  for (let i = 1; i <= 9; i++) {
-    document.getElementById(`cell${i}`).textContent = "";
-  }
-
-  // Player X always starts
-  currentPlayer = "X";
+    // Clear the board
+    board = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 1; i <= 9; i++) {
+      document.getElementById(`cell${i}`).textContent = "";
+    }
   
-  // Increment current round
-  currentRound++;
-
-  // If machine should start the round
-  if (gameMode === "playerVsMachine" && currentPlayer === "O") {
-    computerMove();
-  }
+    // Player X always starts
+    currentPlayer = "X";
+    
+    // Increment current round and update the display
+    currentRound++;
+    roundNumber.textContent = `Round ${currentRound}`;
+  
+    // If machine should start the round
+    if (gameMode === "playerVsMachine" && currentPlayer === "O") {
+      computerMove();
+    }
 }
     
 // Function to stop the game after the last round
@@ -268,3 +269,5 @@ function continueGame() {
   document.getElementById("restartBtn").classList.add("active");
 }
 
+// Initialize the round number
+roundNumber.textContent = `Round ${currentRound}`;
