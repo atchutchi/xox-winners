@@ -71,7 +71,6 @@ function handleGameModeSelection(mode) {
   document.getElementById("restartBtn").classList.add("active");
 }
 
-
 // Function to deal with a cell's click
 function handleCellClick(event) {
   // If the game is not in progress or the cell has already been filled, return.
@@ -89,13 +88,18 @@ function handleCellClick(event) {
     // Updates the page's punctuation
     updateScores();
 
+    roundResult.textContent = `Player ${currentPlayer} Won!`; // Display round result
+
+    // If no one won as of yet, the current player is changed.
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+
     // End the game if a player has won 5 times
     if (playerXScore >= 5 || playerOScore >= 5) {
         endGame();
     } else {
         startNextRound();
     }
-    roundResult.textContent = `Player ${currentPlayer} Won!`; // Display round result
+
     document.querySelector(".game-container").classList.remove("active");
     document.getElementById("restartBtn").classList.remove("active");
     roundDisplay.style.display = 'block'; // Show round display
@@ -116,7 +120,6 @@ function handleCellClick(event) {
     }
   }
 }
-
 
 // This function represents the action of the computer making a move.
 // It works for the game mode where the human player is playing against the computer.
@@ -156,37 +159,42 @@ function computerMove() {
   board[move] = currentPlayer;
   document.getElementById(`cell${move + 1}`).textContent = currentPlayer;
   
-    //After the computer makes its move, it checks if it has won the game.
-    //If it has, it increases its score, updates the scores on the display, and checks if the game is over (i.e., if it was the last round).
-    //If the game is not over, it starts the next round.
-    //If the game has resulted in a tie, it alerts the user and starts the next round.
-    //If the game is not over and it's not a tie, it simply changes the current player.
-    if (checkWin(currentPlayer)) {
-      // Increases the winner's point total
-      currentPlayer === "X" ? playerXScore++ : playerOScore++;
+  //After the computer makes its move, it checks if it has won the game.
+  //If it has, it increases its score, updates the scores on the display, and checks if the game is over (i.e., if it was the last round).
+  //If the game is not over, it starts the next round.
+  //If the game has resulted in a tie, it alerts the user and starts the next round.
+  //If the game is not over and it's not a tie, it simply changes the current player.
+  if (checkWin(currentPlayer)) {
+    // Increases the winner's point total
+    currentPlayer === "X" ? playerXScore++ : playerOScore++;
   
-      // Updates the page's punctuation
-      updateScores();
-  
-      // End the game if a player has won 5 times
-      if (playerXScore >= 5 || playerOScore >= 5) {
-          endGame();
-      } else {
-          startNextRound();
-      }
-      roundResult.textContent = `Player ${currentPlayer} Won!`; // Display round result
-    } else if (checkTie()) {
-      alert("It's a tie!");
-      startNextRound();
-      roundResult.textContent = `It's a Tie!`; // Display round result
+    // Updates the page's punctuation
+    updateScores();
+
+    roundResult.textContent = `Player ${currentPlayer} Won!`; // Display round result
+
+    // If no one won as of yet, the current player is changed.
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+
+    // End the game if a player has won 5 times
+    if (playerXScore >= 5 || playerOScore >= 5) {
+        endGame();
     } else {
-      // If no one won as of yet, the current player is changed.
-      currentPlayer = currentPlayer === "X" ? "O" : "X";
+        startNextRound();
     }
-    for (let i = 1; i <= 9; i++) {
-      document.getElementById(`cell${i}`).addEventListener("click", handleCellClick);
-    }
+ } else if (checkTie()) {
+    alert("It's a tie!");
+    startNextRound();
+    roundResult.textContent = `It's a Tie!`; // Display round result
+  } else {
+    // If no one won as of yet, the current player is changed.
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
+  for (let i = 1; i <= 9; i++) {
+    document.getElementById(`cell${i}`).addEventListener("click", handleCellClick);
+  }
+}
+
 
 // Function to determine whether a player won
 function checkWin(player) {
@@ -207,10 +215,6 @@ function startNextRound() {
   for (let i = 1; i <= 9; i++) {
     document.getElementById(`cell${i}`).textContent = "";
   }
-
-  // Increment current round
-  currentRound++;
-  roundNumber.textContent = `Round ${currentRound}`; // Display round number
 
   // Player X always starts
   currentPlayer = "X";
