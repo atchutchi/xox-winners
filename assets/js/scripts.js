@@ -219,31 +219,30 @@ function startNextRound() {
     // Player X always starts
     currentPlayer = "X";
     
-    // Increment current round and update the display
-    currentRound++;
-    roundNumber.textContent = `Round ${currentRound}`;
-  
     // If machine should start the round
     if (gameMode === "playerVsMachine" && currentPlayer === "O") {
       computerMove();
     }
 }
+  
     
 // Function to stop the game after the last round
 function endGame() {
-
-  gameInProgress = false;
-  if (playerXScore >= 5) {
-    alert("Player X wins the game!");
-    playerXScore = 0;
-    playerOScore = 0;
-  } else if (playerOScore >= 5) {
-    alert("Player O wins the game!");
-    playerXScore = 0;
-    playerOScore = 0;
-  } else {
-    return;
-  }
+    gameInProgress = false;
+  
+    if (playerXScore >= 5) {
+      alert("Player X wins the game!");
+      roundResult.textContent = "Player X Won!"; // Display round result
+      playerXScore = 0;
+      playerOScore = 0;
+    } else if (playerOScore >= 5) {
+      alert("Player O wins the game!");
+      roundResult.textContent = "Player O Won!"; // Display round result
+      playerXScore = 0;
+      playerOScore = 0;
+    } else {
+      return;
+    }
 
   // Reset scores and current round to restart the game
   currentRound = 1;
@@ -251,23 +250,36 @@ function endGame() {
 
   // Start the next round
   startNextRound();
+
+  document.querySelector(".game-container").classList.remove("active");
+  document.getElementById("restartBtn").classList.remove("active");
+  roundDisplay.style.display = 'block'; // Show round display
 }
 
 
 // Function to update the scores
 function updateScores() {
-  document.getElementById("playerXScore").textContent = playerXScore;
-  document.getElementById("playerOScore").textContent = playerOScore;
+    document.getElementById("playerXScore").textContent = playerXScore;
+    document.getElementById("playerOScore").textContent = playerOScore;
 }
-
-
-// Add continueGame function
-function continueGame() {
-  startNextRound();
-  roundDisplay.style.display = 'none'; // Hide round display
-  document.querySelector(".game-container").classList.add("active");
-  document.getElementById("restartBtn").classList.add("active");
+  
+  // Function to start a new round
+  function startNewRound() {
+    // Increment current round and update the display
+    currentRound++;
+    roundNumber.textContent = `Round ${currentRound}`;
+  
+    // Prepare the game for the upcoming round
+    startNextRound();
 }
-
-// Initialize the round number
-roundNumber.textContent = `Round ${currentRound}`;
+  
+  // Add continueGame function
+  function continueGame() {
+    startNewRound();
+    roundDisplay.style.display = 'none'; // Hide round display
+    document.querySelector(".game-container").classList.add("active");
+    document.getElementById("restartBtn").classList.add("active");
+}
+  
+  // Initialize the round number
+  roundNumber.textContent = `Round ${currentRound}`;
