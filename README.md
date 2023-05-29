@@ -5,6 +5,10 @@
 
 XOX Winners is a classic Tic-Tac-Toe game with an exciting twist.
 It offers a variety of game types as well as the chance to compete against a computer opponent while still allowing players to enjoy the classic action. To win the game, you must line up three markers in a row, whether they are placed vertically, horizontally, or diagonally.
+
+### Link to the final page
+- [xox-winners](https://atchutchi.github.io/xox-winners/)
+
 ![XOX Winners Resposive](./assets/images/responsivity.png)
 
 

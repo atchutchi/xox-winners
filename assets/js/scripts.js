@@ -224,38 +224,46 @@ function startNextRound() {
       computerMove();
     }
 }
-  
-    
+      
 // Function to stop the game after the last round
 function endGame() {
     gameInProgress = false;
   
     if (playerXScore >= 5) {
       alert("Player X wins the game!");
-      roundResult.textContent = "Player X Won!"; // Display round result
+      roundResult.textContent = "Player X Won!";
       playerXScore = 0;
       playerOScore = 0;
     } else if (playerOScore >= 5) {
       alert("Player O wins the game!");
-      roundResult.textContent = "Player O Won!"; // Display round result
+      roundResult.textContent = "Player O Won!";
       playerXScore = 0;
       playerOScore = 0;
     } else {
       return;
     }
 
-  // Reset scores and current round to restart the game
-  currentRound = 1;
-  updateScores();
+    // Reset scores and current round to their initial state
+    playerXScore = 0;
+    playerOScore = 0;
+    currentRound = 1;
 
-  // Start the next round
-  startNextRound();
+    // Update the scores on the UI
+    updateScores();
 
-  document.querySelector(".game-container").classList.remove("active");
-  document.getElementById("restartBtn").classList.remove("active");
-  roundDisplay.style.display = 'block'; // Show round display
+    // Hide the game board, the round display and the restart button after a delay of 1 second
+    setTimeout(() => {
+      document.querySelector(".game-container").classList.remove("active");
+      document.getElementById("restartBtn").classList.remove("active");
+      roundDisplay.style.display = 'none'; 
+
+      // Show the game setup section for game mode selection
+      document.getElementById("game-setup").style.display = 'block'; 
+
+      // Prepare the board for the next round
+      startNextRound();
+    }, 1000);  // Wait for 1 second before transitioning to the game setup state
 }
-
 
 // Function to update the scores
 function updateScores() {
