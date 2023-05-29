@@ -117,6 +117,9 @@ function handleCellClick(event) {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     if (gameMode === "playerVsMachine" && currentPlayer === "O") {
         setTimeout(computerMove, 500); // Wait for 1 seconds before the computer makes its move
+        if (currentPlayer === "O") {
+            roundDisplay.style.display = 'block'; // Show round display
+          }
         for (let i = 1; i <= 9; i++) {
             document.getElementById(`cell${i}`).removeEventListener("click", handleCellClick);
         }
@@ -186,14 +189,23 @@ function computerMove() {
     } else {
         continueGame();  // Starts the continue game screen
     }
+
+   // If the game has resulted in a tie, it alerts the user and starts the next round. 
  } else if (checkTie()) {
     roundResult.textContent = `It's a Tie!`; // Display round result
     roundDisplay.style.display = 'block'; // Show round display
     continueGame();  // Starts the continue game screen
+
+    // If the game is not over and it's not a tie, it simply changes the current player.
   } else {
     // If no one won as of yet, the current player is changed.
     currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
+
+  if (currentPlayer === "O") {
+    roundDisplay.style.display = 'block'; // Show round display
+  }
+
   for (let i = 1; i <= 9; i++) {
     document.getElementById(`cell${i}`).addEventListener("click", handleCellClick);
   }
