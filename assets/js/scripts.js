@@ -45,23 +45,25 @@ const continueBtn = document.getElementById('continue-btn');
 // Adding click event listeners to each cell of the game board.
 // When a cell is clicked, the handleCellClick function will be called.
 for (let i = 1; i <= 9; i++) {
-  const cell = document.getElementById(`cell${i}`);
-  cell.addEventListener("click", handleCellClick);
-}
-
-// Adding click event listeners to the game mode selection buttons.
-// When one of these buttons is clicked, the handleGameModeSelection function will be called.
-document.getElementById("playerVsPlayer").addEventListener("click", () => handleGameModeSelection("playerVsPlayer"));
-document.getElementById("playerVsMachine").addEventListener("click", () => handleGameModeSelection("playerVsMachine"));
-
-// Adding a click event listener to the Restart button.
-// When this button is clicked, the page will be refreshed.
-document.getElementById("restartBtn").addEventListener("click", () => location.reload());
-
-// Adding an event listener to the Continue button.
-// When this button is clicked, the continueGame function will be called.
-continueBtn.addEventListener('click', continueGame);
-
+    const cell = document.getElementById(`cell${i}`);
+    cell.addEventListener("click", handleCellClick);
+  }
+  
+  // Adding click event listeners to the game mode selection buttons.
+  // When one of these buttons is clicked, the handleGameModeSelection function will be called.
+  const gameModeButtons = ["playerVsPlayer", "playerVsMachine"];
+  for (const buttonId of gameModeButtons) {
+    document.getElementById(buttonId).addEventListener("click", () => handleGameModeSelection(buttonId));
+  }
+  
+  // Adding a click event listener to the Restart button.
+  // When this button is clicked, the page will be refreshed.
+  document.getElementById("restartBtn").addEventListener("click", () => location.reload());
+  
+  // Adding an event listener to the Continue button.
+  // When this button is clicked, the continueGame function will be called.
+  continueBtn.addEventListener('click', continueGame);
+  
 // Function to deal with game mode selection and game launch
 function handleGameModeSelection(mode) {
   gameMode = mode;
