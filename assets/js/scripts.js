@@ -63,7 +63,7 @@ for (let i = 1; i <= 9; i++) {
   // Adding an event listener to the Continue button.
   // When this button is clicked, the continueGame function will be called.
   continueBtn.addEventListener('click', continueGame);
-  
+
 // Function to deal with game mode selection and game launch
 function handleGameModeSelection(mode) {
   gameMode = mode;
@@ -175,6 +175,7 @@ function computerMove() {
     updateScores();
 
     roundResult.textContent = `Player ${currentPlayer} Won!`; // Display round result
+    roundDisplay.style.display = 'block'; // Show round display
 
     // If no one won as of yet, the current player is changed.
     currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -183,12 +184,12 @@ function computerMove() {
     if (playerXScore >= 5 || playerOScore >= 5) {
         endGame();
     } else {
-        startNextRound();
+        continueGame();  // Starts the continue game screen
     }
  } else if (checkTie()) {
-    alert("It's a tie!");
-    startNextRound();
     roundResult.textContent = `It's a Tie!`; // Display round result
+    roundDisplay.style.display = 'block'; // Show round display
+    continueGame();  // Starts the continue game screen
   } else {
     // If no one won as of yet, the current player is changed.
     currentPlayer = currentPlayer === "X" ? "O" : "X";
