@@ -3,8 +3,6 @@
 // This code is adapted from the tic-tac-toe game by janschreiber on CodePen: https://codepen.io/janschreiber/pen/xZbEvM
 // Original code credit goes to janschreiber
 
-//jshint esversion: 6
-
 // Global variables to store players' scores and the current round number
 let playerXScore = 0;
 let playerOScore = 0;

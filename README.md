@@ -99,6 +99,10 @@ The site was not difficult to create, although I had a lot of difficulties in ma
 - **Solution:** The solution to this problem involved removing the click event from all cells when it is the machine's turn to move, and adding it back after the machine has made its move. This has been implemented in the handleCellClick, computerMove and startNextRound functions. Now, the player can only interact with the board when it's their turn, preventing them from making a move during the machine's turn.
 - **Commit:** [Link to related commit](https://github.com/atchutchi/xox-winners/commit/af836f3ad7992ed94e36ce42659593c52f8a9e28)
 
+### Problem not solved
+- In player vs machine mode when the machine wins the game it does not hide the board and shows the round and the winner, it only does this when Player X wins or Tie. I made changes to the endGame() function and computerMove() to checkWin currentPlayer roundResult.textContent = `Player ${currentPlayer} Won!`; // Display round result
+it still didn't work.
+
 ### Future Developments
 - Add sound effect when computer and player make their moves;
 - Add difficulties in the game (Easy, Medium and Difficult);

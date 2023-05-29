@@ -91,6 +91,8 @@ h2 {
 
 .game-container.active {
     display: flex;
+    margin-left: 20em;
+    margin-right: 20em;
 }
 
 
@@ -168,7 +170,9 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0;
+    margin-left: 20em;
+    margin-right: 20em;
+    margin-bottom: 1em;
     padding: 2rem;
 /* border gradient copy from @thewebforce found on tik tok*/
     border-width: 4px;
