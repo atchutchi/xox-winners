@@ -200,7 +200,7 @@ footer {
 }
 
 /* Big screens, desktops (1025px a 1200px) */
-/*@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
     body {
         font-size: 18px;
     }
@@ -212,7 +212,7 @@ footer {
     }
 
     .game-board {
-        width: 420px;
+        width: 500px;
     }
 
     .game-cell {
@@ -224,7 +224,7 @@ footer {
         margin-left: 10em;
         margin-right: 10em;
     }
-}*/
+}
 
 /* Small screens, laptops (769px a 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
@@ -262,11 +262,12 @@ footer {
     .game-container.active {
         display: flex;
         margin-left: 2em;
-        margin-right: 1em;
+        margin-right: 2em;
     }
 
     .game-board {
         width: 330px; 
+        gap: 1px;
     }
 
     .game-cell {
@@ -276,7 +277,7 @@ footer {
 
     .rules{
         margin-left: 2em;
-        margin-right: 1em;
+        margin-right: 2em;
     }
 }
 
@@ -294,8 +295,7 @@ footer {
 
     .game-board {
         width: 270px;
-        margin: auto;
-        padding: 0; 
+        gap: 1px;
     }
 
     .game-cell {
