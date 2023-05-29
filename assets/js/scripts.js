@@ -3,20 +3,24 @@
 // This code is adapted from the tic-tac-toe game by janschreiber on CodePen: https://codepen.io/janschreiber/pen/xZbEvM
 // Original code credit goes to janschreiber
 
-// Variables to store player scores and current round
+// Global variables to store players' scores and the current round number
 let playerXScore = 0;
 let playerOScore = 0;
 let currentRound = 1;
-const totalRounds = 5; // Sets the total number of rounds
+const totalRounds = 5; // Define the total number of rounds to be played
 
-// Variables to keep track of the game mode and whether play is active
+// Variables to keep track of the game mode (Player vs Player / Player vs Machine)
+// and whether a game is currently in progress
 let gameMode = null;
 let gameInProgress = false;
 
-// Create an array to store each cell's value.
+// The game board is represented as an array of nine elements.
+// Initially, all elements are empty strings.
 let board = ["", "", "", "", "", "", "", "", ""];
 
-// Create an array with all viable winning combinations.
+// An array of all possible winning combinations in the game.
+// Each combination is an array of three indices. If all these indices in the board
+// array have the same value (either "X" or "O"), then it's a winning combination.
 const winningCombinations = [
   [0, 1, 2],
   [3, 4, 5],
@@ -28,39 +32,35 @@ const winningCombinations = [
   [2, 4, 6]
 ];
 
-// Identify who the current player is.
+// Variable to keep track of the current player. 
+// It's either "X" (the first player) or "O" (the second player / the computer).
 let currentPlayer = "X";
 
-// Get the new elements
+// Getting references to the various HTML elements to update during the game
 const roundDisplay = document.getElementById('round-display');
 const roundNumber = document.getElementById('round-number');
 const roundResult = document.getElementById('round-result');
 const continueBtn = document.getElementById('continue-btn');
 
-
-// Adds an event listener to each cell.
+// Adding click event listeners to each cell of the game board.
+// When a cell is clicked, the handleCellClick function will be called.
 for (let i = 1; i <= 9; i++) {
   const cell = document.getElementById(`cell${i}`);
   cell.addEventListener("click", handleCellClick);
 }
 
-// Add event listeners to the game mode selection buttons.
+// Adding click event listeners to the game mode selection buttons.
+// When one of these buttons is clicked, the handleGameModeSelection function will be called.
 document.getElementById("playerVsPlayer").addEventListener("click", () => handleGameModeSelection("playerVsPlayer"));
 document.getElementById("playerVsMachine").addEventListener("click", () => handleGameModeSelection("playerVsMachine"));
 
-// Add an event listener to the Restart button to refresh the page.
+// Adding a click event listener to the Restart button.
+// When this button is clicked, the page will be refreshed.
 document.getElementById("restartBtn").addEventListener("click", () => location.reload());
 
-// Add event listeners to the game mode selection buttons.
-document.getElementById("playerVsPlayer").addEventListener("click", () => handleGameModeSelection("playerVsPlayer"));
-document.getElementById("playerVsMachine").addEventListener("click", () => handleGameModeSelection("playerVsMachine"));
-
-// Add an event listener to the Restart button to refresh the page.
-document.getElementById("restartBtn").addEventListener("click", () => location.reload());
-
-// Add event listener to the Continue button
+// Adding an event listener to the Continue button.
+// When this button is clicked, the continueGame function will be called.
 continueBtn.addEventListener('click', continueGame);
-
 
 // Function to deal with game mode selection and game launch
 function handleGameModeSelection(mode) {
