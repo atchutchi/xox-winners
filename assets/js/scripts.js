@@ -71,7 +71,8 @@ function handleGameModeSelection(mode) {
   document.getElementById("restartBtn").classList.add("active");
 }
 
-// Function to deal with a cell's click
+// Function to handle cell clicks.
+// When a cell is clicked, this function will be called with the click event as a parameter.
 function handleCellClick(event) {
   // If the game is not in progress or the cell has already been filled, return.
   if (!gameInProgress || event.target.textContent !== "") return;
