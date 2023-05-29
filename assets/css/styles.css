@@ -200,7 +200,7 @@ footer {
 }
 
 /* Big screens, desktops (1025px a 1200px) */
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+/*@media only screen and (min-width: 1025px) and (max-width: 1200px) {
     body {
         font-size: 18px;
     }
@@ -212,10 +212,7 @@ footer {
     }
 
     .game-board {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        width: min(100% - 50%, 350px); 
+        width: 420px;
     }
 
     .game-cell {
@@ -227,7 +224,7 @@ footer {
         margin-left: 10em;
         margin-right: 10em;
     }
-}
+}*/
 
 /* Small screens, laptops (769px a 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
