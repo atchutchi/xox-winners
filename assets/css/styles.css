@@ -196,7 +196,6 @@ footer {
     color: #00ffff;
     padding: 1rem;
     text-align: center;
-    bottom: 0;
     width: 100%;
 }
 
@@ -205,14 +204,28 @@ footer {
     body {
         font-size: 18px;
     }
+    
+    .game-container.active {
+        display: flex;
+        margin-left: 10em;
+        margin-right: 10em;
+    }
 
     .game-board {
-        width: 500px; 
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: min(100% - 50%, 350px); 
     }
 
     .game-cell {
         width: 150px;
         height: 150px;
+    }
+
+    .rules{
+        margin-left: 10em;
+        margin-right: 10em;
     }
 }
 
@@ -222,13 +235,24 @@ footer {
         font-size: 16px;
     }
 
+    .game-container.active {
+        display: flex;
+        margin-left: 10em;
+        margin-right: 10em;
+    }
+
     .game-board {
-        width: 350px; 
+        width: 360px; 
     }
 
     .game-cell {
         width: 120px;
         height: 120px;
+    }
+
+    .rules{
+        margin-left: 10em;
+        margin-right: 10em;
     }
 }
 
@@ -238,13 +262,24 @@ footer {
         font-size: 14px;
     }
 
+    .game-container.active {
+        display: flex;
+        margin-left: 2em;
+        margin-right: 1em;
+    }
+
     .game-board {
-        width: 300px; 
+        width: 330px; 
     }
 
     .game-cell {
         width: 90px;
         height: 90px;
+    }
+
+    .rules{
+        margin-left: 2em;
+        margin-right: 1em;
     }
 }
 
@@ -254,8 +289,14 @@ footer {
         font-size: 12px;
     }
 
+    .game-container.active {
+        display: flex;
+        margin-left: 2em;
+        margin-right: 1em;
+    }
+
     .game-board {
-        width: 250px;
+        width: 270px;
         margin: auto;
         padding: 0; 
     }
@@ -263,5 +304,10 @@ footer {
     .game-cell {
         width: 80px;
         height: 80px;
+    }
+
+    .rules{
+        margin-left: 2em;
+        margin-right: 1em;
     }
 }
