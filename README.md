@@ -7,7 +7,7 @@ XOX Winners is a classic Tic-Tac-Toe game with an exciting twist.
 It offers a variety of game types as well as the chance to compete against a computer opponent while still allowing players to enjoy the classic action. To win the game, you must line up three markers in a row, whether they are placed vertically, horizontally, or diagonally.
 
 ### Link to the final page
-- [xox-winners](https://atchutchi.github.io/xox-winners/)
+- [XOX-Winners](https://atchutchi.github.io/xox-winners/) page.
 
 ![XOX Winners Resposive](./assets/images/responsivity.png)
 
@@ -177,6 +177,8 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 ### Codes
 - The code was inspired by these 2 versions [lando464](https://codepen.io/lando464/pen/BPGEKO) & [janschreiber](https://codepen.io/janschreiber/pen/xZbEvM)
 - I used [codeanywhere](https://app.codeanywhere.com/) for the development of the project as a whole.
-- Assistance with HTML, CSS was provided by [Developer Mozilla](https://developer.mozilla.org/) [CSS-tricks](https://css-tricks.com/), [TikTok](https://www.tiktok.com/@thewebforce/video/7233395940181183745?_t=8cYUmROW3SH&_r=1).
+- I used [gitpod](https://gitpod.io/workspaces) for the development of the project as a whole.
+- Assistance with HTML, CSS was provided by [Developer Mozilla](https://developer.mozilla.org/) [CSS-tricks](https://css-tricks.com/), [TikTok](https://www.tiktok.com/@thewebforce/video/7233395940181183745?_t=8cYUmROW3SH&_r=1)
 - Tutorials and documentation from Code Institute Love Math and youtube [video](https://www.youtube.com/watch?v=lhNdUVh3qCc&t=14s).
 - [My Mentor Can Sücüllü] were consulted during the development process.
+- I used Basic writing and formatting syntax from [GitHub Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
