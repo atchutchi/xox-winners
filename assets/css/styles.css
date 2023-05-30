@@ -267,7 +267,7 @@ footer {
 
     .game-board {
         width: 330px; 
-        gap: 1px;
+        gap: 6px;
     }
 
     .game-cell {
@@ -295,7 +295,7 @@ footer {
 
     .game-board {
         width: 250px;
-        gap: 1px;
+        gap: 6px;
     }
 
     .game-cell {
