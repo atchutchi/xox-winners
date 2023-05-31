@@ -196,3 +196,4 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 - Tutorials and documentation from Code Institute Love Math and youtube [video](https://www.youtube.com/watch?v=lhNdUVh3qCc&t=14s).
 - [My Mentor Can Sücüllü](https://github.com/cansucullu) were consulted during the development process.
 - I used Basic writing and formatting syntax from [GitHub Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- I created a custom 404 page for GitHub by following this [link](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site).
