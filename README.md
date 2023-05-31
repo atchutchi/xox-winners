@@ -146,10 +146,10 @@ The subsequent web browsers were utilized to evaluate the website's compatibilit
 ### Validator Testing
 
 #### HTML
-by running the test at [Validator w3 html](https://validator.w3.org/) Document checking completed. No errors or warnings to show
+By running the test at [Validator w3 html](https://validator.w3.org/) Document checking completed. No errors or warnings to show
 
 #### CSS
-by running the test at [Jigsaw w3 css/](https://jigsaw.w3.org/css-validator/)
+By running the test at [Jigsaw w3 css/](https://jigsaw.w3.org/css-validator/)
 W3C CSS Validation Results for TextArea (CSS Level 3 + SVG)
 No errors were found in your stylesheet.
 
@@ -189,10 +189,10 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 - JAVASCRIPT
 
 ### Codes
-- The code was inspired by these 2 versions [lando464](https://codepen.io/lando464/pen/BPGEKO) & [janschreiber](https://codepen.io/janschreiber/pen/xZbEvM)
+- The code was inspired by these 2 versions [lando464](https://codepen.io/lando464/pen/BPGEKO) & [janschreiber](https://codepen.io/janschreiber/pen/xZbEvM).
 - I used [codeanywhere](https://app.codeanywhere.com/) for the development of the project as a whole.
 - I used [gitpod](https://gitpod.io/workspaces) for the development of the project as a whole.
-- Assistance with HTML, CSS was provided by [Developer Mozilla](https://developer.mozilla.org/) [CSS-tricks](https://css-tricks.com/), [TikTok](https://www.tiktok.com/@thewebforce/video/7233395940181183745?_t=8cYUmROW3SH&_r=1)
+- Assistance with HTML, CSS was provided by [Developer Mozilla](https://developer.mozilla.org/) [CSS-tricks](https://css-tricks.com/), [TikTok](https://www.tiktok.com/@thewebforce/video/7233395940181183745?_t=8cYUmROW3SH&_r=1) and [JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom_html.asp).
 - Tutorials and documentation from Code Institute Love Math and youtube [video](https://www.youtube.com/watch?v=lhNdUVh3qCc&t=14s).
-- [My Mentor Can Sücüllü] were consulted during the development process.
+- [My Mentor Can Sücüllü](https://github.com/cansucullu) were consulted during the development process.
 - I used Basic writing and formatting syntax from [GitHub Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
