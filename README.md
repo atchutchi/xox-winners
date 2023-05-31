@@ -179,7 +179,7 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 - The font of the text was used [googlefonts](https://fonts.google.com/).
 
 ### Media
-- The logo of the project was created by me.
+- The logo of the project was created by me using photoshop and font Posey Textured for the text.
 - Screenshot of the responsive where taken from [ui.dev](https://ui.dev/amiresponsive?url=https://atchutchi.github.io/xox-winners/).
 - To create Skeleton of the project it was used the Balsamiq [wireframe](https://balsamiq.cloud/skteh5n/pz7ucs).
 
