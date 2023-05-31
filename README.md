@@ -38,22 +38,27 @@ Users are welcomed with the game's visually beautiful and user-friendly interfac
 
 ### Game Board Phone
 ![Phone responsivity](https://share.balsamiq.com/c/rBwm3PRcLAY2Jeg3QrPhxZ.png)
-
 #### Player vs. Player: 
 - Play against another player on the same device and take turns making moves.
 
 #### Player vs. Machine: 
 - Challenge the computer opponent in a one-on-one match. Test your skills against an AI that makes strategic moves.
+- In "Player vs Machine" mode, the computer automatically chooses a free cell.
 
 #### Dynamic Game Board: 
 - The game board adjusts to fit different screen sizes, providing a responsive and enjoyable gaming experience on various devices.
+
+#### Managing a round:
+
+- The number of rounds in the game is indicated by totalRounds.
+- The game moves on to the following round after each round, and the round number is increased.
+- The game concludes when the predetermined number of rounds has been completed, and the winner is decided using the scores.
 
 #### Score Tracking: 
 - Keep track of the scores for each player (Player X and Player O) as the game progresses through multiple rounds.
 
 #### Game Restart: 
 - Restart the game at any time with a click of the "Restart" button to start a fresh match.
-
 ### Rules
 ![Rules](https://share.balsamiq.com/c/aJkBVQfZshrJg5XFNQk8wv.png)
 
@@ -66,6 +71,15 @@ The game has a rules section that describes how the game works and its rules so 
 ![Footer](https://share.balsamiq.com/c/gSiienWh7tR8EbqWU86UYB.png)
 
 The site has a footer with the description of the copyrights
+
+#### User interface:
+- The game's interface is simple to use and features both written and visual elements.
+- The current round number and each round's outcome are displayed on the round display.
+- Visually appealing graphics are used to depict the game board and score information.
+
+#### Responsive Design:
+- The interface of the game is made to be responsive and adjustable for various screen sizes and gadgets.
+
 
 ## Testing
 

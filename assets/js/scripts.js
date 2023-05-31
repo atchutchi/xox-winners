@@ -7,7 +7,7 @@
 let playerXScore = 0;
 let playerOScore = 0;
 let currentRound = 1;
-const totalRounds = 5; // Define the total number of rounds to be played
+// const totalRounds = 5; // Define the total number of rounds to be played
 
 // Variables to keep track of the game mode (Player vs Player / Player vs Machine)
 // and whether a game is currently in progress
