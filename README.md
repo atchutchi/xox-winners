@@ -115,11 +115,12 @@ The site was not difficult to create, although I had a lot of difficulties in ma
 
 ### Problem not solved
 - In player vs machine mode when the machine wins the game it does not hide the board and shows the round and the winner, it only does this when Player X wins or Tie. I made changes to the endGame() function and computerMove() to checkWin currentPlayer roundResult.textContent = `Player ${currentPlayer} Won!`; // Display round result
-it still didn't work.
+it still didn't work. I spend the last 5 days trying to figured it out where my code is not working, i went through tutorials but they were showing me different methods but as i didnt have much time i couldnt solve it and i had to be sure most of the codes work to reach a pass.
 
 ### Future Developments
 - Add sound effect when computer and player make their moves;
 - Add difficulties in the game (Easy, Medium and Difficult);
+- Fix the machine wins the game that does not hide the board and shows the round and the winner;
 
 
 ### Responsivity
