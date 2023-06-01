@@ -155,7 +155,17 @@ No errors were found in your stylesheet.
 
 #### JavaScript
 The code was tested on [jshint](https://jshint.com/)
-Without errors
+Without errors. 
++ **The following metrics were returned:**
+- There are 17 functions in this file.
+- Function with the largest signature take 1 arguments, while the median is 0.
+- Largest function has 29 statements in it, while the median is 3.
+- The most complex function has a cyclomatic complexity value of 21 while the median is 1.
+
++ **Three warnings:**
+- 57	Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (handleGameModeSelection)
+- 91	Expected an assignment or function call and instead saw an expression.
+- 174	Expected an assignment or function call and instead saw an expression.
 
 #### Accessibility
 - I confirmed that colors and fonts chosen are easy to read and accessible by running it through lightouse in chrome devtools
